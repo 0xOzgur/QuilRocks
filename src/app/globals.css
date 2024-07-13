@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 97, 26, 16;
+  --background-end-rgb: 249, 180, 124;
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex; /* Flexbox modelini kullan */
+  flex-direction: column; /* İçerikleri dikey olarak hizala */
+  min-height: 100vh;
+}
+
+.main-container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+/* Ana konteyner için stil */
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Horizontally centers the content */
+  align-items: flex-start; /* Vertically aligns the content at the top */
+  gap: 1rem; /* Adds gap between items */
+  margin-top: 1rem;
+}
+
+.content-container::after {
+  content: "";
+  flex: auto;
+}
+
+/* Adjust the main container to align items at the start */
+main.flex {
+  justify-content: flex-start; /* Align content to the start */
+  gap: 1rem; /* Add some gap between items */
+}
+
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* Logo ve menüyü ayrı tutacak */
+  align-items: center;
+  width: 100%; /* Tam genişlik sağlar */
+  background-color: #972222;
+  border-radius: 8px;
+}
+
+.header {
+font-size: x-large;
+font-style:inherit;
+/* font-weight:initial;*/
+}
+
+.header-menu {
+  display: flex; /* Flexbox modelini etkinleştirir */
+  gap: 0.75rem; /* Öğeler arasında 1rem boşluk bırakır */
+  width: 100%; /* Genişliği arttır */
+  margin-right: 1rem;
+}
+
+.header-menu li {
+  font-weight: 600;
+  border-color: #000000; 
+  color: #ffffff; 
+  background-color: #972222; 
+  flex-grow: 1; 
+  border-radius: 1rem;
+  padding: 0.5rem; /* Tüm kenarlardan 1rem boşluk */
+  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  padding: 10px;
+  margin-left: auto;
+}
+
+.header-menu li:hover {
+  font-weight: 600;
+  border-color: #000000; 
+  color: #ffffff; 
+  background-color: #bb6e6e; 
+  flex-grow: 1; 
+  border-radius: 1rem;
+  padding: 0.5rem; /* Tüm kenarlardan 1rem boşluk */
+  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  padding: 10px;
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.header {
+  color: #fff;
+  padding: 1rem 0;
+  font-size: x-large;
+  font-style: inherit;
+  margin-left: auto;
+}
+
+.header-logo {
+  width: 100%;
+  max-width: 96rem;
+  display: flex;
+  align-items: center;
+  vertical-align: space-between;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: small;
+  margin-left: 1rem;
+}
+
+.fixed-head {
+  position: fixed; /* Keeps the element fixed at the bottom of the screen */
+  bottom: 0;
+  left: 0;
+  display: flex; /* Uses flexbox for layout */
+  height: 12rem; /* 48 tailwind units, assuming 1rem = 4 units */
+  width: 100%; /* Full width of its container */
+  align-items: flex-end; /* Aligns items to the bottom */
+  justify-content: center; /* Centers items horizontally */
+  background-image: linear-gradient(to top, white, white); /* Gradient background from white to white */
+}
+
+
+/* Large screen adjustments */
+@media (min-width: 1024px) {
+  .fixed-head {
+    position: static; /* Resets position for large screens */
+    height: auto; /* Resets height for large screens */
+    background: none; /* Removes background for large screens */
+  }
+
+  .header-logo {
+    display: flex;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Flexbox modelini etkinleştirir */
+}
+
+.main-flex {
+  display: flex; /* Enables flexbox layout */
+  flex-direction: column; /* Stacks items vertically */
+  align-items: center; /* Centers items horizontally */
+  justify-content: space-between; /* Distributes items evenly, with first item at start and last item at end */
+  padding: 5%; /* Adds padding around the content */
+  min-height: 100vh; /* Ensures the element takes up at least the full height of the viewport */
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Sütun sayısını ihtiyaca göre ayarlayın */
+  gap: 20px; /* Kartlar arasındaki boşluk */
+  padding: 20px 50px 50px 50px; /* Üst padding'i azaltıldı */
+  width: 100%;
+  max-width: 100%;
+  align-items: start; /* .card öğelerini üstte sabitler */
+}
+
+.card {
+  display: flex; /* Flexbox modelini etkinleştir */
+  flex-direction: column; /* İçeriği dikey yönde sırala */
+  min-height: 200px; /* Kartların minimum yüksekliğini belirle */
+  background-color: #fff; /* Arka plan rengi */
+  border-radius: 1rem; /* Kenar yuvarlaklığı */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+  flex-grow: 0;
+  align-items: center;
+  padding: 0;
+}
+
+/* Ekran boyutuna göre medya sorguları */
+@media (max-width: 768px) {
+  .card {
+    min-width: 200px; /* Daha küçük ekranlar için kart genişliği */
+  }
+
+  .nft-image {
+    width: 100%; /* Allows image to fill the container on smaller screens */
+  }
+
+  .card {
+    min-width: 200px; /* Daha küçük ekranlar için kart genişliği */
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    flex-direction: column; /* Çok küçük ekranlarda kartları dikey olarak istifler */
+    align-items: center; /* Kartları merkeze hizalar */
+  }
+  .card {
+    max-width: 100%; /* Kartların tam genişlik almasını sağlar */
+  }
+}
+
+.card:hover {
+  box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
+  transform: scale(1.01); /* İçeriği %10 büyüt */
+}
+
+.nft-image {
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  max-width: 100%; /* Ensures image does not exceed its container */
+  height: auto; /* Maintains aspect ratio */
+}
+
+
+/* Inline style için CSS değişkeni */
+:root {
+  --card-flex-basis: calc(20% - 1rem);
+}
+
+h3.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: black;
+}
+
+.card-content {
+  /* Define styles specific to card content here */
+  padding: 1%;
+  font-size: 1rem;
+  color: #4a5568;
+  text-align: center; 
+  flex-grow: 1;
+}
+
+.card-category {
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  background-color: #eff1f5;
+  text-align: left; /* Metni sola hizala */
+  border: 1px solid #ccc; /* Gri tonunda bir çerçeve */
+  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  padding: 8px;
+  max-width: 100%; /* Maksimum genişlik */
+  margin-left: 0; /* Sol marjı sıfırla, öğeyi sola yasla */
+  margin-right: auto;
+}
+
+.card-links {
+  display: flex; /* Flexbox modelini etkinleştir */
+  justify-content: center; /* İçerikleri yatay eksende merkeze hizala */
+  gap: 1rem;
+}
+
+.buy-btn {
+  font-size: 1.25rem;
+  font-weight: 500;
+  background-color: #e96c2b; /* Blue background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Top-bottom 10px, right-left 20px padding */
+  border: none; /* No border */
+  border-radius: 0px 0px 8px 8px; /* Rounded corners at the bottom */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Background color transition */
+  width: 100%; /* Adjust width to fill the container */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  height: 3rem; /* Height */
+  margin: 0; /* Ensure no margin is applied */
+}
+
+.buy-btn:hover {
+  background-color: #b64407; /* Fare üzerine gelince koyu mavi arka plan */
+}
+
+.filters-container {
+  background-color: #ffffff;
+  display: flex; /* Flexbox'u etkinleştir */
+  align-items: center; /* İçerikleri dikey olarak ortala */
+  justify-content: space-between; /* İçerikleri yatay olarak başlangıç noktasından hizala */
+  gap: 10px; /* Elementler arasında boşluk bırak */
+  position: sticky;
+  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  top: 90px;
+  z-index: 1000;
+  width: 100%; /* Konteynerin genişliğini sayfanın genişliğine ayarla */
+  max-width: 80%; /* Maksimum genişlik */
+  margin-left: auto; /* Sol marjı otomatik ayarla */
+  margin-right: auto;
+}
+
+.filter {
+  transition: background-color 0.3s ease; /* Arka plan rengi değişimini yumuşat */
+  color: #2a2a2a;
+  font-size: 1rem;
+  font-weight: 500;
+  color: fff;
+  text-align: left; /* Metni sola hizala */
+  padding: 8px;
+  max-width: 100%; /* Maksimum genişlik */
+  padding: 1rem;
+}
+
+.filter-rarity {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2a2a2a;
+  background-color: #fff;
+  text-align: left; /* Metni sola hizala */
+  border: 1px solid #ccc; /* Gri tonunda bir çerçeve */
+  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  padding: 8px;
+  max-width: 100%; /* Maksimum genişlik */
+  padding: 0.5rem;
+  margin: 0.3rem;
+}
+
+.filter-rarity:hover {
+  background-color: #e6e6e6; /* Hover durumunda arka plan rengini değiştir */
+  cursor: pointer; /* Fare imlecini işaretçi olarak değiştir */
+}
+
+.search-box input[type="search"] {
+  color: #2a2a2a;
+  padding: 8px;
+  margin-right: 1rem;
+  margin-left: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kutu gölgesi */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Geçiş efekti */
+}
+
+.search-box input[type="search"]:focus {
+  border-color: #e96c2b; /* Odaklandığında kenarlık rengi */
+  box-shadow: 0 4px 6px rgba(233, 108, 43, 0.5); /* Odaklandığında kutu gölgesi */
+  outline: none; /* Odaklandığında varsayılan outline'ı kaldır */
+}
+
+.footer {
+  max-height: fit-content;
+  text-align: center; /* Footer metnini ortalar */
+  padding: 1rem; /* Üst ve alttan 1rem boşluk */
+  font-size: 1rem; /* Metin boyutunu ayarlar */}
+  
+
+    .footer a {
+      display: inline-block; 
+      border-radius: 0.4rem; 
+      transition: all 0.3s ease;
+    }
+    
+    .footer a:hover {
+      border-color: #000000; 
+      padding: 0.2rem;
+      background-color: #f56565; 
+      color: #ffffff; 
+    }
+    
+    /* Dark mode hover styles */
+    .footer a:hover.dark {
+      border-color: #2a2a2a;
+      background-color: #f0f0f0;
+    }
