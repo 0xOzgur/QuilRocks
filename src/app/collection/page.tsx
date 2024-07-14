@@ -88,13 +88,13 @@ export default function Home() {
           <div className="fixed-head lg:size-auto lg:bg-none">
             <a
               className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-              href="https://quilibrium.space"
+              href="https://quilrocks.io"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Image
                 src="/logo.png"
-                alt="Quilibrium Logo"
+                alt="QuilRocks Logo"
                 className="dark:invert"
                 width={200}
                 height={24}
@@ -107,7 +107,7 @@ export default function Home() {
               <ul className="header-menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/learn">Mint</a></li>
-                <li><a href="/build">Collection</a></li>
+                <li><a href="/collection">Collection</a></li>
                 <li><a href="/build">My Rocks</a></li>
               </ul>
             </nav>

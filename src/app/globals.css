@@ -380,3 +380,23 @@ h3.card-title {
       border-color: #2a2a2a;
       background-color: #f0f0f0;
     }
+
+    .container1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #f56565;
+      border-radius: 1rem;
+    }
+
+    .left1 { /* 'right1' yazım hatası düzeltilmiştir */
+      flex: 1; /* Her iki div de eşit genişlikte olacak */
+      max-width: 50%; /* Maksimum genişlik */
+    }
+
+    .right1 { /* 'right1' yazım hatası düzeltilmiştir */
+      flex: 1; /* Her iki div de eşit genişlikte olacak */
+      max-width: 50%; /* Maksimum genişlik */
+    }
