@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
   --foreground-rgb: 255, 255, 255;
@@ -17,6 +18,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    background-image: url('/container1-bg.png');
+    background-size: cover;
   max-width: 90%;
   margin: 0 auto;
   display: flex; /* Flexbox modelini kullan */
@@ -27,6 +30,8 @@ body {
 .main-container {
   max-width: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   flex-grow: 1;
 }
@@ -60,7 +65,8 @@ main.flex {
   justify-content: space-between; /* Logo ve menüyü ayrı tutacak */
   align-items: center;
   width: 100%; /* Tam genişlik sağlar */
-  background-color: #972222;
+  background-image: url('/container1-bg.webp');
+  background-size: cover;
   border-radius: 8px;
 }
 
@@ -75,6 +81,7 @@ font-style:inherit;
   gap: 0.75rem; /* Öğeler arasında 1rem boşluk bırakır */
   width: 100%; /* Genişliği arttır */
   margin-right: 1rem;
+  font-family: "Rubik", sans-serif;
 }
 
 .header-menu li {
@@ -385,18 +392,148 @@ h3.card-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background-color: #f56565;
       border-radius: 1rem;
+      background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+      height: 50vh;
+      line-height: 5rem;
+      margin-top: 1rem;
+    }
+    
+    .left1 {
+      flex: 1; /* Take up equal width */
+      max-width: 50%; /* Maximum width */
+      align-items: center;
     }
 
-    .left1 { /* 'right1' yazım hatası düzeltilmiştir */
-      flex: 1; /* Her iki div de eşit genişlikte olacak */
-      max-width: 50%; /* Maksimum genişlik */
+    .left1 h2 {
+      -webkit-text-fill-color: transparent;
+      -webkit-font-smoothing: antialiased;
+      text-align: center;
+      background: linear-gradient(263.59deg, #faf3f3, #c9766f  99.38%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: 4.5vw;
+      font-family: "Rubik", sans-serif;
+      font-weight: 600;
+    } 
+    
+    .right1 {
+      flex: 1; /* Take up equal width */
+      max-width: 50%; /* Maximum width */
+      align-items: center;
     }
 
-    .right1 { /* 'right1' yazım hatası düzeltilmiştir */
-      flex: 1; /* Her iki div de eşit genişlikte olacak */
-      max-width: 50%; /* Maksimum genişlik */
+    .intro-rock {
+      align-items: center;
+      max-height: 20rem;
+      margin-left: 10rem;
     }
+
+    .slogan-container {
+      -webkit-text-fill-color: transparent;
+      -webkit-font-smoothing: antialiased;
+      text-align: center;
+      background: linear-gradient(263.59deg, #b11111, #fc5e49  99.38%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: 5vw;
+      font-family: "Rubik", sans-serif;
+      font-weight: 300;
+      line-height: 5rem;
+      margin-top: 4rem;
+  }
+
+  .rock1 {
+    font-weight: 600;
+    font-size: 5vw;
+    font-family: "Rubik", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .rock2 {
+    background: linear-gradient(263.59deg, #b11111, #fc5e49  99.38%);
+    font-family: "Rubik", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-background-clip: text;
+    font-size: 5vw;
+    font-weight: 700;
+  }
+
+  .container2 {
+    grid-template-columns: repeat(3, 1fr); /* Sütun sayısını ihtiyaca göre ayarlayın */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+  }
+
+  .c2-left,
+  .c2-middle,
+  .c2-right {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    margin-top: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    line-height: 2rem;
+    margin-bottom: 5rem;
+    width: 45rem;
+  }
+  
+  .c2-left {
+    background-image: url('/rock1.png');
+    margin-left: 13rem;
+  }
+
+  .l-m-text1 {
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(163.59deg, #ffffff, #d8d6d5  99.38%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: xx-large;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+  }
+
+
+  .c2-middle {
+    background-image: url('/rock2.png');
+  }
+
+  .l-m-text2 {
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(163.59deg, #ffffff, #d8d6d5  99.38%);
+    font-family: "Rubik", sans-serif;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: xx-large;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+  }
+
+  .c2-right {
+    background-image: url('/rock3.png');
+    margin-right: 14rem;
+  }
+
+  .l-m-text3 {
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(163.59deg, #ffffff, #d8d6d5  99.38%);
+    font-family: "Rubik", sans-serif;
+    background-clip: text;
+    font-size: xx-large;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+  }

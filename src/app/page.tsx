@@ -2,30 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
-
-function ImageRotator() {
-  const images = [
-    '/collection/0001.PNG', // Updated paths to start with a leading slash
-    '/collection/0002.PNG',
-    '/collection/0003.PNG',
-  ];
-  const [currentImage, setCurrentImage] = useState(images[0]);
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const nextIndex = (index + 1) % images.length;
-      setIndex(nextIndex);
-      setCurrentImage(images[nextIndex]);
-    }, 3000); // Every 3 seconds
-
-    return () => clearInterval(timer);
-  }, [index, images]);
-
-  return (
-    <Image src={currentImage} alt="Rotating Image" width={500} height={300} />
-  );
-}
+import Parallax from 'react-parallax'
 
 export default function Home() {
   return (
@@ -41,7 +18,7 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/logo.png"
+                  src="/logo2.png"
                   alt="QuilRocks Logo"
                   className="dark:invert"
                   width={200}
@@ -54,7 +31,7 @@ export default function Home() {
               <nav className="container mx-auto flex justify-between">
                 <ul className="header-menu">
                   <li><a href="/">Home</a></li>
-                  <li><a href="/learn">Mint</a></li>
+                  <li><a href="/mint">Mint</a></li>
                   <li><a href="/collection">Collection</a></li>
                   <li><a href="/build">My Rocks</a></li>
                 </ul>
@@ -64,15 +41,39 @@ export default function Home() {
         </div>
         
         <div className="main-container">
-          <div className="content-container">
-            <div className='container1'>
-              <div className='left1'>Quilibrium eko </div>
-              <div className='right1'>
-                {/* ImageRotator bileşenini buraya ekleyin */}
-                <ImageRotator />
+
+
+          <div className='container1'>
+            <div className='left1'>
+            <h2>First NFT Collection of Quilibrium</h2>
+            </div>
+            <div className='right1'>
+              <div className='slogan-container'>
+                <div className='slogan1'>LET’S<span className='rock1'> ROCK</span></div>
+                <div className='slogan2'><span className='rock2'>QUILIBRIUM</span></div>
               </div>
             </div>
           </div>
+
+          <div className='container2'>
+
+            <div className='c2-left'>
+              <div><span className="l-m-text1">2024</span></div>
+              <div><span className="l-m-text1">Unique Items</span></div>
+            </div>
+
+            <div className='c2-middle'>
+              <div><span className="l-m-text2">Upcoming</span></div>
+              <div><span className="l-m-text2">Partnerships</span></div>
+            </div>
+
+            <div className='c2-right'>
+              <div><span className="l-m-text3">Many</span></div>
+              <div><span className="l-m-text3">Suprises</span></div>
+            </div>
+
+          </div>
+
           <div className="footer">Made with ❤️ by <b><a href="https://www.xxxx.com" className="group">XXXXX</a> </b>Lovers</div>
         </div>
       </main>

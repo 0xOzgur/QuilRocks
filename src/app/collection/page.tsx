@@ -93,7 +93,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <Image
-                src="/logo.png"
+                src="/logo2.png"
                 alt="QuilRocks Logo"
                 className="dark:invert"
                 width={200}
