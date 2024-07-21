@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.17.0'
+          node-version: '18.17.0'  # Node.js sürümünü 18.17.0 veya daha yeni bir sürüm olarak ayarlayın
 
       - name: Install dependencies
         run: npm install
@@ -33,7 +33,7 @@ jobs:
           USERNAME: ${{ secrets.SSH_USERNAME }}
           PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
-          sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+          sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} <<EOF
             cd /path/to/your/nextjs-app
             git pull origin main
             npm install
