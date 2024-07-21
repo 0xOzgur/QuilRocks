@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './Login.scss';
-import Button from './Button';
 import { usePasskeysContext } from './context/PasskeysContext';
 import { PasskeyModal } from './modals/PasskeyModal';
 import Input from './Input';
