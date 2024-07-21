@@ -1,0 +1,39 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+
+    - name: Deploy to server
+      env:
+        HOST: ${{ secrets.77.221.149.197 }}
+        USERNAME: ${{ secrets.root }}
+        PASSWORD: ${{ secrets.PvZ9I5GLiEbw }}
+      run: |
+        sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+          cd ~/QuilRocks
+          git pull origin main
+          npm install
+          npm run build
+          pm2 restart nextjs-app
+        EOF
