@@ -24,9 +24,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
-
       - name: Deploy to server
         env:
           HOST: ${{ secrets.DROPLET_IP }}
@@ -34,7 +31,7 @@ jobs:
           PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
           sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
-            cd /path/to/your/nextjs-app
+            cd ~/QuilRocks
             git pull origin main
             npm install
             npm run build
