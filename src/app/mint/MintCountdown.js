@@ -22,40 +22,35 @@ const MintCountdown = () => {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    // This useEffect is dedicated to setting hasMounted to true
     setHasMounted(true);
   }, []);
 
   useEffect(() => {
-    // Countdown timer logic, independent of hasMounted
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft("2024/11/18 12:00:00"));
     }, 1000);
 
-    return () => clearInterval(timer); // Cleanup the interval on component unmount
-  }, []); // Empty dependency array means this runs once on mount
+    return () => clearInterval(timer);
+  }, []);
 
-  // Only render the countdown if the component has mounted
   if (!hasMounted) {
-    return null; // Or some placeholder content for server-side rendering
+    return null;
   }
 
   return (
-    <div className="row gx-3 align-items-center mb-3">
-      <div className="countdown d-inline-block text-white text-7 fw-600">Mint ends in:</div>
-      <div className="col-12 col-lg-auto">
-        <div className="countdown d-inline-block text-white text-7 fw-600">
-          {Object.keys(timeLeft).length > 0 ? (
-            <span>
-              {timeLeft.days}d<span className="blink_me">:</span>
-              {timeLeft.hours}h<span className="blink_me">:</span>
-              {timeLeft.minutes}m<span className="blink_me">:</span>
-              {timeLeft.seconds}s
-            </span>
-          ) : (
-            <span>Time&apos;s up!</span>
-          )}
-        </div>
+    <div className="mint-countdown-container">
+      <div className="mint-ends-text">Mint ends in:</div>
+      <div className="countdown-timer">
+        {Object.keys(timeLeft).length > 0 ? (
+          <span>
+            {timeLeft.days}d<span className="blink_me">:</span>
+            {timeLeft.hours}h<span className="blink_me">:</span>
+            {timeLeft.minutes}m<span className="blink_me">:</span>
+            {timeLeft.seconds}s
+          </span>
+        ) : (
+          <span>Time&apos;s up!</span>
+        )}
       </div>
     </div>
   );

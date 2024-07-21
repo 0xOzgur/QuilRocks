@@ -76,7 +76,7 @@ export default function Home() {
     setSelectedRarity(rarity);
   };
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
