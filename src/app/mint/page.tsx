@@ -1,10 +1,26 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from "next/image";
-import Parallax from 'react-parallax'
+import { Login } from './components/Login';
 
 export default function Home() {
+  const [mintNumber, setMintNumber] = useState(1); // Starting mint number
+  const [mintQuantity, setMintQuantity] = useState(1); // State to track mint quantity
+  const [isWalletConnected, setIsWalletConnected] = useState(false);
+
+  const connectWallet = () => {
+    // Logic to connect wallet
+    setIsWalletConnected(true);
+  };
+
+  const mintNFT = () => {
+    // Logic to mint NFT based on mintQuantity
+    console.log(`Minting ${mintQuantity} NFT(s) starting from #${mintNumber}`);
+    // Increment mint number after minting by mintQuantity
+    setMintNumber(mintNumber + mintQuantity);
+  };
+
   return (
     <>
       <main className="main-flex">
@@ -30,10 +46,10 @@ export default function Home() {
             <div className="header">
               <nav className="container mx-auto flex justify-between">
                 <ul className="header-menu">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/mint">Mint</a></li>
-                  <li><a href="/collection">Collection</a></li>
-                  <li><a href="/build">My Rocks</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/mint">Mint</a></li>
+                <li><a href="/collection">Collection</a></li>
+                <li><a href="/my-rocks">My Rocks</a></li>
                 </ul>
               </nav>
             </div>
@@ -41,22 +57,15 @@ export default function Home() {
         </div>
         
         <div className="main-container">
-
-
           <div className='container1'>
-            <div className='left1'>
-            <h2>First NFT Collection of Quilibrium</h2>
+            
+            <div className='mint-left1'>
+              <h2>Rock Container Sample</h2>
             </div>
-            <div className='right1'>
-              <div className='slogan-container'>
-                <div className='slogan1'>LET’S<span className='rock1'> ROCK</span></div>
-                <div className='slogan2'><span className='rock2'>QUILIBRIUM</span></div>
-              </div>
-            </div>
+
+            <div className="mint-right1"></div>
           </div>
-
-
-          <div className="footer">Made with ❤️ by <b><a href="https://www.xxxx.com" className="group">XXXXX</a> </b>Lovers</div>
+          <div className="footer">Made with ❤️ by <b><a href="https://www.xxxx.com" className="group">XXXXX</a></b> Lovers</div>
         </div>
       </main>
     </>

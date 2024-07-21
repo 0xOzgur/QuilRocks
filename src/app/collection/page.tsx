@@ -106,9 +106,9 @@ export default function Home() {
             <nav className="container mx-auto flex justify-between">
               <ul className="header-menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="/learn">Mint</a></li>
+                <li><a href="/mint">Mint</a></li>
                 <li><a href="/collection">Collection</a></li>
-                <li><a href="/build">My Rocks</a></li>
+                <li><a href="/my-rocks">My Rocks</a></li>
               </ul>
             </nav>
          </div>

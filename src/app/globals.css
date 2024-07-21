@@ -250,7 +250,6 @@ h3.card-title {
 }
 
 .card-content {
-  /* Define styles specific to card content here */
   padding: 1%;
   font-size: 1rem;
   color: #4a5568;
@@ -263,66 +262,66 @@ h3.card-title {
   font-weight: 500;
   color: black;
   background-color: #eff1f5;
-  text-align: left; /* Metni sola hizala */
-  border: 1px solid #ccc; /* Gri tonunda bir çerçeve */
-  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   padding: 8px;
-  max-width: 100%; /* Maksimum genişlik */
-  margin-left: 0; /* Sol marjı sıfırla, öğeyi sola yasla */
+  max-width: 100%;
+  margin-left: 0;
   margin-right: auto;
 }
 
 .card-links {
-  display: flex; /* Flexbox modelini etkinleştir */
-  justify-content: center; /* İçerikleri yatay eksende merkeze hizala */
+  display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 
 .buy-btn {
   font-size: 1.25rem;
   font-weight: 500;
-  background-color: #e96c2b; /* Blue background color */
-  color: white; /* White text color */
-  padding: 10px 20px; /* Top-bottom 10px, right-left 20px padding */
-  border: none; /* No border */
-  border-radius: 0px 0px 8px 8px; /* Rounded corners at the bottom */
-  cursor: pointer; /* Change cursor to pointer */
-  transition: background-color 0.3s; /* Background color transition */
-  width: 100%; /* Adjust width to fill the container */
-  box-sizing: border-box; /* Include padding and border in the element's total width */
-  height: 3rem; /* Height */
-  margin: 0; /* Ensure no margin is applied */
+  background-color: #e96c2b;
+  color: white;
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 0px 0px 8px 8px; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+  height: 3rem;
+  margin: 0;
 }
 
 .buy-btn:hover {
-  background-color: #b64407; /* Fare üzerine gelince koyu mavi arka plan */
+  background-color: #b64407;
 }
 
 .filters-container {
   background-color: #ffffff;
-  display: flex; /* Flexbox'u etkinleştir */
-  align-items: center; /* İçerikleri dikey olarak ortala */
-  justify-content: space-between; /* İçerikleri yatay olarak başlangıç noktasından hizala */
-  gap: 10px; /* Elementler arasında boşluk bırak */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   position: sticky;
-  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  border-radius: 8px;
   top: 90px;
   z-index: 1000;
-  width: 100%; /* Konteynerin genişliğini sayfanın genişliğine ayarla */
-  max-width: 80%; /* Maksimum genişlik */
-  margin-left: auto; /* Sol marjı otomatik ayarla */
+  width: 100%;
+  max-width: 80%;
+  margin-left: auto;
   margin-right: auto;
 }
 
 .filter {
-  transition: background-color 0.3s ease; /* Arka plan rengi değişimini yumuşat */
+  transition: background-color 0.3s ease;
   color: #2a2a2a;
   font-size: 1rem;
   font-weight: 500;
   color: fff;
-  text-align: left; /* Metni sola hizala */
+  text-align: left;
   padding: 8px;
-  max-width: 100%; /* Maksimum genişlik */
+  max-width: 100%;
   padding: 1rem;
 }
 
@@ -331,18 +330,18 @@ h3.card-title {
   font-weight: 500;
   color: #2a2a2a;
   background-color: #fff;
-  text-align: left; /* Metni sola hizala */
-  border: 1px solid #ccc; /* Gri tonunda bir çerçeve */
-  border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   padding: 8px;
-  max-width: 100%; /* Maksimum genişlik */
+  max-width: 100%;
   padding: 0.5rem;
   margin: 0.3rem;
 }
 
 .filter-rarity:hover {
-  background-color: #e6e6e6; /* Hover durumunda arka plan rengini değiştir */
-  cursor: pointer; /* Fare imlecini işaretçi olarak değiştir */
+  background-color: #e6e6e6;
+  cursor: pointer;
 }
 
 .search-box input[type="search"] {
@@ -352,21 +351,21 @@ h3.card-title {
   margin-left: auto;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kutu gölgesi */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Geçiş efekti */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-box input[type="search"]:focus {
-  border-color: #e96c2b; /* Odaklandığında kenarlık rengi */
-  box-shadow: 0 4px 6px rgba(233, 108, 43, 0.5); /* Odaklandığında kutu gölgesi */
-  outline: none; /* Odaklandığında varsayılan outline'ı kaldır */
+  border-color: #e96c2b;
+  box-shadow: 0 4px 6px rgba(233, 108, 43, 0.5);
+  outline: none;
 }
 
 .footer {
   max-height: fit-content;
-  text-align: center; /* Footer metnini ortalar */
-  padding: 1rem; /* Üst ve alttan 1rem boşluk */
-  font-size: 1rem; /* Metin boyutunu ayarlar */}
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;}
   
 
     .footer a {
@@ -537,3 +536,100 @@ h3.card-title {
     font-family: "Rubik", sans-serif;
     font-weight: 600;
   }
+
+  .mint-left1 {
+    flex: 1;
+    max-width: 50%;
+    align-items: center;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 25rem;
+    padding: 5rem;
+    margin: 5rem;
+  }
+
+  .left1 h2 {
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    background: linear-gradient(263.59deg, #faf3f3, #c9766f  99.38%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 4.5vw;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+  } 
+  
+  .mint-right1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 80%;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 5rem;
+}
+
+  .mint {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mint-right1 button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0px 10px 0px 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  .mint-right1 button:hover {
+    background-color: #45a049; 
+  }
+  
+  .mint-quantity-input {
+    align-content: center;
+    width: 5rem;
+    border-radius: 8px;
+    box-sizing: border-box; /* Kutu modeli boyutlandırmasını ayarlar */
+    border: 1px solid #ccc;
+    text-align: center;
+    color: #666;
+  }
+
+  .mint-left1 h2 {
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    background: linear-gradient(263.59deg, #faf3f3, #c9766f  99.38%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 4.5vw;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+  } 
+
+  .mint-quantity-container {
+  display: flex;
+  align-items: center;
+}
+
+.mint-quantity-button {
+  font-size: 16px; /* adjust the font size to your liking */
+  border: none;
+  border-radius: 50%;
+  background-color: #ccc; /* adjust the background color to your liking */
+  cursor: pointer;
+}
+
+.mint-quantity-container button:hover {
+  background-color: #aaa; /* adjust the hover background color to your liking */
+}
