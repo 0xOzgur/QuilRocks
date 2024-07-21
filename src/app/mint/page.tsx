@@ -35,17 +35,10 @@ export default function Home() {
     }, 3000); // 3 saniye sonra işlem tamamlanacak
   };
 
-  const handleQuantityChange = (change) => {
-    if (typeof change === 'number') {
-      setMintQuantity((prevQuantity) => {
-        const newQuantity = prevQuantity + change;
-        return Math.max(1, Math.min(newQuantity, 10));
-      });
-    } else {
-      const value = parseInt(change, 10);
-      if (!isNaN(value)) {
-        setMintQuantity(Math.max(1, Math.min(value, 10)));
-      }
+  const handleQuantityChange = (inputValue: string | number) => {
+    const value = typeof inputValue === 'string' ? parseInt(inputValue, 10) : inputValue;
+    if (!isNaN(value)) {
+      setMintQuantity(Math.max(1, Math.min(value, 10))); // Ensure the quantity is within allowed bounds
     }
   };
 
@@ -124,7 +117,7 @@ export default function Home() {
               <div className="quantity-container">
                 <span className="quantity-label">Quantity:</span>
                 <div className="quantity-input-container">
-                  <button className="quantity-button" onClick={() => handleQuantityChange(-1)}>-</button>
+                <button className="quantity-button" onClick={() => handleQuantityChange(-1)}>-</button>
                   <input
                     type="number"
                     value={mintQuantity}
