@@ -40,3 +40,5 @@ next-env.d.ts
 /.github/workflows/
 
 /public/collection/
+
+.github/workflows/deploy.yml
