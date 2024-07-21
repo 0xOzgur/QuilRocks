@@ -1,39 +1,42 @@
-name: Deploy to VPS
+name: Deploy to Server
 
 on:
   push:
     branches:
-      - main
+      - main  # Takip etmek istediğiniz branch'i belirtin
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build project
-      run: npm run build
+      - name: Build project
+        run: npm run build
 
-    - name: Deploy to server
-      env:
-        HOST: ${{ secrets.77.221.149.197 }}
-        USERNAME: ${{ secrets.root }}
-        PASSWORD: ${{ secrets.PvZ9I5GLiEbw }}
-      run: |
-        sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
-          cd ~/QuilRocks
-          git pull origin main
-          npm install
-          npm run build
-          pm2 restart quil-rocks
-        EOF
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Deploy to server
+        env:
+          HOST: ${{ secrets.DROPLET_IP }}
+          USERNAME: ${{ secrets.SSH_USERNAME }}
+          PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+            cd /path/to/your/nextjs-app
+            git pull origin main
+            npm install
+            npm run build
+            pm2 restart nextjs-app
+          EOF
