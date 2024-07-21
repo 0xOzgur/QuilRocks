@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
-import Parallax from 'react-parallax'
 
 export default function Home() {
   return (

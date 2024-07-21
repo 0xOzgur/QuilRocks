@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Image from "next/image";
-import { Login } from './components/Login';
 
 export default function Home() {
   const [mintNumber, setMintNumber] = useState(1); // Starting mint number

@@ -1,13 +1,15 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { ChangeEvent } from 'react';
 import Image from "next/image";
 import nfts from './nfts.json';
 
 export default function Home() {
   const uniqueRarities = new Set(nfts.map(nft => nft.rarity));
   const [selectedRarity, setSelectedRarity] = useState('');
-  const [displayedNfts, setDisplayedNfts] = useState([]);
+  const [displayedNfts, setDisplayedNfts] = useState<{ image: string; imageAlt: string; rockNo: string; rarity: string; }[]>([]);
+
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const loader = useRef(null);
@@ -63,18 +65,18 @@ export default function Home() {
     };
   }, []);
 
-  const handleObserver = useCallback((entries) => {
+  const handleObserver = useCallback((entries: IntersectionObserverEntry[]) => {
     const target = entries[0];
     if (target.isIntersecting && hasMore) {
       setPage(prevPage => prevPage + 1);
     }
   }, [hasMore]);
 
-  const handleRarityClick = (rarity) => {
+  const handleRarityClick = (rarity: string) => {
     setSelectedRarity(rarity);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
@@ -122,7 +124,7 @@ export default function Home() {
   <div className="filter">
     Rarity: 
     <span className="filter-rarity" onClick={() => setSelectedRarity('')} style={{cursor: 'pointer', textDecoration: 'underline'}}>All</span>
-    {[...uniqueRarities].map((rarity, index) => (
+    {Array.from(uniqueRarities).map((rarity, index) => (
       <span 
         key={index} 
         className="filter-rarity" 
