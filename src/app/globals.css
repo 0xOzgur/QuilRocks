@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --foreground-rgb: 255, 255, 255;
@@ -25,6 +25,10 @@ body {
   display: flex; /* Flexbox modelini kullan */
   flex-direction: column; /* İçerikleri dikey olarak hizala */
   min-height: 100vh;
+}
+
+body, button, input, textarea, select {
+  font-family: 'Jost', sans-serif !important;
 }
 
 .main-container {
@@ -81,7 +85,7 @@ font-style:inherit;
   gap: 0.75rem; /* Öğeler arasında 1rem boşluk bırakır */
   width: 100%; /* Genişliği arttır */
   margin-right: 1rem;
-  font-family: "Rubik", sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 .header-menu li {
@@ -131,7 +135,7 @@ font-style:inherit;
   align-items: center;
   vertical-align: space-between;
   justify-content: space-between;
-  font-family: monospace;
+  font-family: "Jost", sans-serif;
   font-size: small;
   margin-left: 1rem;
 }
@@ -380,20 +384,25 @@ h3.card-title {
       background-color: #f56565; 
       color: #ffffff; 
     }
-    
-    /* Dark mode hover styles */
-    .footer a:hover.dark {
-      border-color: #2a2a2a;
-      background-color: #f0f0f0;
-    }
 
-    .container1 {
+    .container1-home {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-radius: 1rem;
       background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
       height: 50vh;
+      line-height: 5rem;
+      margin-top: 1rem;
+    }
+
+    .container1-mint {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 1rem;
+      background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+      height: 100%;
       line-height: 5rem;
       margin-top: 1rem;
     }
@@ -412,7 +421,7 @@ h3.card-title {
       -webkit-background-clip: text;
       background-clip: text;
       font-size: 4.5vw;
-      font-family: "Rubik", sans-serif;
+      font-family: "Jost", sans-serif;
       font-weight: 600;
     } 
     
@@ -436,7 +445,7 @@ h3.card-title {
       -webkit-background-clip: text;
       background-clip: text;
       font-size: 5vw;
-      font-family: "Rubik", sans-serif;
+      font-family: "Jost", sans-serif;
       font-weight: 300;
       line-height: 5rem;
       margin-top: 4rem;
@@ -445,13 +454,13 @@ h3.card-title {
   .rock1 {
     font-weight: 600;
     font-size: 5vw;
-    font-family: "Rubik", sans-serif;
+    font-family: "Jost", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
   .rock2 {
     background: linear-gradient(263.59deg, #b11111, #fc5e49  99.38%);
-    font-family: "Rubik", sans-serif;
+    font-family: "Jost", sans-serif;
     -webkit-font-smoothing: antialiased;
     -webkit-background-clip: text;
     font-size: 5vw;
@@ -500,7 +509,7 @@ h3.card-title {
     -webkit-background-clip: text;
     background-clip: text;
     font-size: xx-large;
-    font-family: "Rubik", sans-serif;
+    font-family: "Jost", sans-serif;
     font-weight: 600;
   }
 
@@ -513,7 +522,7 @@ h3.card-title {
     -webkit-text-fill-color: transparent;
     -webkit-font-smoothing: antialiased;
     background: linear-gradient(163.59deg, #ffffff, #d8d6d5  99.38%);
-    font-family: "Rubik", sans-serif;
+    font-family: "Jost", sans-serif;
     -webkit-background-clip: text;
     background-clip: text;
     font-size: xx-large;
@@ -530,10 +539,9 @@ h3.card-title {
     -webkit-text-fill-color: transparent;
     -webkit-font-smoothing: antialiased;
     background: linear-gradient(163.59deg, #ffffff, #d8d6d5  99.38%);
-    font-family: "Rubik", sans-serif;
+    font-family: "Jost", sans-serif;
     background-clip: text;
     font-size: xx-large;
-    font-family: "Rubik", sans-serif;
     font-weight: 600;
   }
 
@@ -542,8 +550,12 @@ h3.card-title {
     max-width: 50%;
     align-items: center;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
-    height: 25rem;
+    background-color: #000000;
+    background-image: url('/cass.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 35rem;
     padding: 5rem;
     margin: 5rem;
   }
@@ -556,15 +568,13 @@ h3.card-title {
     -webkit-background-clip: text;
     background-clip: text;
     font-size: 4.5vw;
-    font-family: "Rubik", sans-serif;
+    font-family: "Jost", sans-serif;
     font-weight: 600;
   } 
   
   .mint-right1 {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction:column;
     width: 40%;
     height: 80%;
     border-radius: 8px;
@@ -572,38 +582,17 @@ h3.card-title {
     margin: 5rem;
 }
 
-  .mint {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+/* mint-right1 sınıfına sahip div içindeki doğrudan çocukların dikey boşluklarını azalt */
+.mint-right1 > * {
+  margin-top: 0px; /* Üstteki boşluğu azalt */
+  margin-bottom: -15px; /* Altındaki boşluğu azalt */
+}
 
-  .mint-right1 button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 0px 10px 0px 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-  }
-
-  .mint-right1 button:hover {
-    background-color: #45a049; 
-  }
-  
-  .mint-quantity-input {
-    align-content: center;
-    width: 5rem;
-    border-radius: 8px;
-    box-sizing: border-box; /* Kutu modeli boyutlandırmasını ayarlar */
-    border: 1px solid #ccc;
-    text-align: center;
-    color: #666;
-  }
+/* Alternatif olarak, tüm çocuk öğeleri hedef al */
+.mint-right1 * {
+  padding-top: 0px; /* Üstteki padding'i azalt */
+  padding-bottom: 0px; /* Altındaki padding'i azalt */
+}
 
   .mint-left1 h2 {
     -webkit-text-fill-color: transparent;
@@ -613,23 +602,117 @@ h3.card-title {
     -webkit-background-clip: text;
     background-clip: text;
     font-size: 4.5vw;
-    font-family: "Rubik", sans-serif;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+  }
+
+  .public-mint {
+    text-align: center;
+    font-size: 2vw;
+    font-family: "Jost", sans-serif;
     font-weight: 600;
   } 
 
-  .mint-quantity-container {
-  display: flex;
-  align-items: center;
+  .success {
+    display: inline-block; 
+    max-height: fit-content;
+    text-align: center;
+    font-size: 3rem;
+    border-radius: 1rem;
+    background-color: rgba(117, 9, 240, 0.5);
+    font-weight: 600;
+    padding: 2px 4px; /* Üst-alt ve sağ-sol padding değerlerini azaltın */
+    line-height: 1.2;
+  } 
+
+  .max-wallet {
+    border-style: solid; /* Adds a border */
+    border-color:#000000;
+    border-radius: 2rem; /* Rounds the corners to make it pill-shaped */
+    display: inline-block; /* Allows the element to sit inline but respects padding and margins */
+    padding: 0 1rem; /* Adds padding on the left and right */
+    text-transform: uppercase; /* Converts text to uppercase */
+    color: #f8f9fa; /* Light colored text */
+    background-color: #4a5568;
+    max-width: fit-content;
+  }
+
+
+  /* Styles the container that holds the price information */
+.price-container {
+  display: flex; /* Ensures the elements are laid out in a row */
+  justify-content: center; /* Centers the items horizontally for small screens */
+  justify-content: start; /* Aligns items to the start for larger screens */
+  margin-bottom: 1rem; /* Adds some space below the container */
 }
 
-.mint-quantity-button {
-  font-size: 16px; /* adjust the font size to your liking */
-  border: none;
-  border-radius: 50%;
-  background-color: #ccc; /* adjust the background color to your liking */
+/* Styles for larger screens */
+@media (min-width: 992px) {
+  .price-container {
+    justify-content: flex-start; /* Aligns items to the start */
+  }
+}
+
+/* Styles the column that contains the price */
+.pricecol {
+  flex: 0 0 auto; /* Does not allow the column to grow or shrink */
+  width: 33.33333%; /* Sets the width for large screens */
+}
+
+.pricecol-auto {
+  flex: 0 0 auto; /* Do not grow or shrink, based on content width */
+  width: auto; /* Width based on content */
+}
+
+/* Mimic Bootstrap's col-lg-4 behavior */
+@media (min-width: 992px) { /* Bootstrap's 'lg' breakpoint */
+  .col-lg-4 {
+    flex: 0 0 33.33333%; /* Take up 4 of 12 columns */
+    max-width: 33.33333%; /* Maximum width to 33.33333% of the parent */
+  }
+}
+
+/* Styles the paragraph that introduces the price */
+.price-text {
+  color: #f8f9fa; /* Sets a light color for the text */
+  margin-bottom: 0; /* Removes the bottom margin */
+}
+
+/* Styles the actual price */
+.price-text2 {
+  font-size: 1.75rem; /* Sets the font size */
+  color: #ffffff; /* Sets the text color to white */
+  font-weight: 600; /* Makes the font semi-bold */
+}
+
+/* Styles for Remaining class */
+.Remaining {
+  color: #f8f9fa; /* Assuming 'text-light' is a light grey */
+  margin-bottom: 0; /* mb-0 class to remove bottom margin */
+}
+
+/* Styles for Remaining-no */
+.Remaining-no {
+  font-size: 2.5rem; /* Larger text size for 'text-7' */
+  color: #ffffff; /* White text for 'text-white' */
+  font-weight: 600; /* Semi-bold for 'fw-600' */
+}
+
+
+.mint-button {
+  font-size: 1.25rem;
+  font-weight: 500;
+  background-color: #e96c2b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 36px; 
   cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+  height: 3rem;
 }
 
-.mint-quantity-container button:hover {
-  background-color: #aaa; /* adjust the hover background color to your liking */
+.mint-button:hover {
+  background-color: #b64407;
 }
