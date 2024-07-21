@@ -53,7 +53,7 @@ const MintCountdown = () => {
               {timeLeft.seconds}s
             </span>
           ) : (
-            <span>Time's up!</span>
+            <span>Time&apos;s up!</span>
           )}
         </div>
       </div>

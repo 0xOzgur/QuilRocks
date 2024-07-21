@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   // Function to handle change in mint amount
-  const handleMintAmountChange = (event) => {
+  const handleMintAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const quantity = parseInt(event.target.value, 10) || 1; // Default to 1 if input is invalid
     setMintQuantity(quantity);
   };

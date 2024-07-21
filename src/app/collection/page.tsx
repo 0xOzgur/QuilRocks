@@ -97,7 +97,6 @@ export default function Home() {
               <Image
                 src="/logo2.png"
                 alt="QuilRocks Logo"
-
                 width={200}
                 height={24}
                 priority
