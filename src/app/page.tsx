@@ -73,7 +73,7 @@ export default function Home() {
 
           </div>
 
-          <div className="footer">Made with ❤️ by <b><a href="https://www.xxxx.com" className="group">XXXXX</a> </b>Lovers</div>
+          <div className="footer">Made with ❤️ by <b><a href="https://www.quilibrium.com" className="group">Quilibrium</a> </b>Lovers</div>
         </div>
       </main>
     </>
