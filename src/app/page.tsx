@@ -12,14 +12,14 @@ export default function Home() {
             <div className="fixed-head lg:size-auto lg:bg-none">
               <a
                 className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-                href="https://quilrocks.io"
+                href="https://app.quilrocks.io"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Image
                   src="/logo2.png"
                   alt="QuilRocks Logo"
-                  className="dark:invert"
+
                   width={200}
                   height={24}
                   priority
@@ -42,7 +42,7 @@ export default function Home() {
         <div className="main-container">
 
 
-          <div className='container1'>
+          <div className='container1-home'>
             <div className='left1'>
             <h2>First NFT Collection of Quilibrium</h2>
             </div>
