@@ -1,4 +1,3 @@
-/* Mevcut stilleriniz */
 .mint-right1 {
     display: flex;
     flex-direction: column;
@@ -54,33 +53,124 @@
   }
   
   .max-wallet {
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.2);
-    border-radius: 2rem;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
     color: #a0a0a0;
-    background-color: rgba(255, 255, 255, 0.1);
-    max-width: fit-content;
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    line-height: 2;
+  }
+  
+  .max-wallet::before {
+    content: '🔒';
+    margin-right: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .max-wallet:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .price-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     margin-bottom: 1.5rem;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 1.5rem;
+    border-radius: 15px;
+    padding: 0.5rem; /* Azaltıldı: 0.75rem -> 0.5rem */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-
+  
   .price-column, .remaining-column {
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 0.15rem; /* Azaltıldı: 0.25rem -> 0.15rem */
+    position: relative;
+  }
+  
+  .price-column::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10%; /* Değiştirildi: 15% -> 10% */
+    height: 80%; /* Değiştirildi: 70% -> 80% */
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+.price-text, .Remaining {
+  color: #a0a0a0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 2;
+  margin: 10px; /* Margin'i kaldırıyoruz */
+}
+  
+  .price-text2, .Remaining-no {
+    font-size: 1.3rem;
+    color: #4ecdc4;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 2;
+    margin: 0; /* Margin'i kaldırıyoruz */
+  }
+  
+  .price-inner, .remaining-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.2rem; /* Etiket ve değer arasında minimal boşluk */
+  }
+  
+  .mint-button {
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    color: white;
+    padding: 0; /* Padding'i kaldırıyoruz */
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    height: 3rem;
+    border: none;
+    display: flex; /* Flexbox kullanıyoruz */
+    justify-content: center; /* Yatay olarak ortalıyoruz */
+    align-items: center; /* Dikey olarak ortalıyoruz */
+  }
+  
+  .mint-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  .mint-button.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  input[type="number"] {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
   }
   
   @media (min-width: 992px) {
@@ -93,58 +183,93 @@
     }
   }
   
-  .pricecol, .pricecol-auto {
-    flex: 0 0 auto;
-  }
-  
-  .price-text, .Remaining {
-    color: #a0a0a0;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  
-  .price-text2, .Remaining-no {
-    font-size: 1.8rem;
-    color: #4ecdc4;
-    font-weight: 700;
-    text-align: center;
-  }
-
   @media (max-width: 768px) {
     .price-container {
       flex-direction: column;
+      padding: 0.5rem; /* Azaltıldı: 0.75rem -> 0.5rem */
     }
-  
     .price-column, .remaining-column {
-      margin-bottom: 1rem;
+      padding: 0.25rem 0; /* Azaltıldı: 0.5rem 0 -> 0.25rem 0 */
+      margin-bottom: 0.25rem; /* Azaltıldı: 0.5rem -> 0.25rem */
+    }
+    .price-column::after {
+      width: 70%; /* Değiştirildi: 80% -> 70% */
+      height: 1px;
+      bottom: 0;
+      left: 15%; /* Değiştirildi: 10% -> 15% */
+      top: auto;
+      right: auto;
     }
   }
-  
-  .mint-button {
-    font-size: 1.2rem;
-    font-weight: 500;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-    box-sizing: border-box;
-    height: 3rem;
-    border: none;
+
+  .quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 1rem;
+    line-height: 2;
   }
   
-  .mint-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  .quantity-label {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .quantity-input-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.2rem;
+  }
+  
+  .quantity-button {
+    background-color: transparent;
+    border: none;
+    color: #4ecdc4;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .quantity-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
   
   input[type="number"] {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    border: none;
     color: white;
-    padding: 10px;
-    border-radius: 5px;
+    font-size: 0.9rem;
+    width: 2.5rem;
+    text-align: center;
+    -moz-appearance: textfield;
+    margin: 0 0.3rem;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .quantity-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .quantity-label {
+      margin-bottom: 0.5rem;
+    }
+  
+    .quantity-input-container {
+      width: 100%;
+      justify-content: space-between;
+    }
   }

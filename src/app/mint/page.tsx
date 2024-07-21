@@ -5,32 +5,56 @@ import Image from "next/image";
 import MintCountdown from './MintCountdown';
 import './mintPage.css';
 
-
 export default function Home() {
-  const [mintNumber, setMintNumber] = useState(1); // Starting mint number
-  const [mintQuantity, setMintQuantity] = useState(1); // State to track mint quantity
-  const [isWalletConnected, setIsWalletConnected] = useState(false);
+  const [mintNumber, setMintNumber] = useState(1);
+  const [mintQuantity, setMintQuantity] = useState(1);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMinting, setIsMinting] = useState(false);
 
-  const connectWallet = () => {
-    // Logic to connect wallet
-    setIsWalletConnected(true);
+  const handlePasskeyAuth = async () => {
+    setIsLoading(true);
+    // Simüle edilmiş passkey oluşturma süreci
+    setTimeout(() => {
+      setIsAuthenticated(true);
+      setIsLoading(false);
+    }, 2000); // 2 saniye sonra işlem tamamlanacak
   };
 
   const mintNFT = () => {
-    // Logic to mint NFT based on mintQuantity
-    console.log(`Minting ${mintQuantity} NFT(s) starting from #${mintNumber}`);
-    // Increment mint number after minting by mintQuantity
-    setMintNumber(mintNumber + mintQuantity);
+    if (!isAuthenticated) {
+      console.error("User not authenticated");
+      return;
+    }
+    setIsMinting(true);
+    // Simüle edilmiş mint işlemi
+    setTimeout(() => {
+      console.log(`Minted ${mintQuantity} NFT(s) starting from #${mintNumber}`);
+      setMintNumber(mintNumber + mintQuantity);
+      setIsMinting(false);
+    }, 3000); // 3 saniye sonra işlem tamamlanacak
   };
 
-  // Function to handle change in mint amount
-  const handleMintAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const quantity = Math.min(Math.max(parseInt(event.target.value) || 1, 1), 10);
-    setMintQuantity(quantity);
+  const handleQuantityChange = (change) => {
+    if (typeof change === 'number') {
+      setMintQuantity((prevQuantity) => {
+        const newQuantity = prevQuantity + change;
+        return Math.max(1, Math.min(newQuantity, 10));
+      });
+    } else {
+      const value = parseInt(change, 10);
+      if (!isNaN(value)) {
+        setMintQuantity(Math.max(1, Math.min(value, 10)));
+      }
+    }
   };
 
-  // Calculate mint cost dynamically
-  const mintCost = mintQuantity * 100; // Assuming 100 Quil per NFT
+  const getButtonText = () => {
+    if (isLoading) return 'Creating Account...';
+    if (isMinting) return 'Minting...';
+    if (isAuthenticated) return 'Mint Now';
+    return 'Create Account / Sign In';
+  };
 
   return (
     <>
@@ -80,46 +104,48 @@ export default function Home() {
 
               <MintCountdown />
 
-              <div className='max-wallet'>10 Max Per Wallet</div>
+              <div className="max-wallet">10 Max Per Wallet</div>
             
               <div className="price-container">
               <div className="price-column">
-                <p className="price-text">Price:</p>
-                <div className="price-text2">{mintQuantity * 100} QUIL</div>
+                <div className="price-inner">
+                  <p className="price-text">PRICE:</p>
+                  <div className="price-text2">{mintQuantity * 100} QUIL</div>
+                </div>
               </div>
 
               <div className="remaining-column">
-                <p className="Remaining">Remaining:</p>
-                <div className="Remaining-no">634/2024</div>
+                  <div className="remaining-inner">
+                    <p className="Remaining">REMAINING:</p>
+                    <div className="Remaining-no">634/2024</div>
+                  </div>
+                </div>
               </div>
+              <div className="quantity-container">
+                <span className="quantity-label">Quantity:</span>
+                <div className="quantity-input-container">
+                  <button className="quantity-button" onClick={() => handleQuantityChange(-1)}>-</button>
+                  <input
+                    type="number"
+                    value={mintQuantity}
+                    onChange={(e) => handleQuantityChange(e.target.value)}
+                    min="1"
+                    max="10"
+                  />
+                  <button className="quantity-button" onClick={() => handleQuantityChange(1)}>+</button>
+                </div>
               </div>
 
-              <div className="col-12 col-sm-auto text-light"> Quantity: </div>
-
-              <div className="col-auto col-sm-4">
-              <div className="input-group form-dark">
-                <button type="button" className="input-group-text bg-transparent border-0 text-light text-5" onClick={() => setMintQuantity(Math.max(1, mintQuantity - 1))}>-</button>
-                <input 
-                  type="number" 
-                  id="nft-amount" 
-                  className="form-control text-center bg-transparent rounded-4" 
-                  value={mintQuantity} 
-                  onChange={handleMintAmountChange}
-                  min="1"
-                  max="10"
-                />
-                <button type="button" className="input-group-text bg-transparent border-0 text-light text-5" onClick={() => setMintQuantity(Math.min(10, mintQuantity + 1))}>+</button>
+              <div className="d-grid">
+              <button 
+                  className={`mint-button ${isLoading || isMinting ? 'loading' : ''}`}
+                  onClick={isAuthenticated ? mintNFT : handlePasskeyAuth}
+                  disabled={isLoading || isMinting}
+                >
+                  {getButtonText()}
+                </button>
               </div>
             </div>
-
-<div className="d-grid">
-  <button className="mint-button" onClick={mintNFT} disabled={!isWalletConnected}>
-    {isWalletConnected ? 'Mint Now' : 'Connect Wallet to Mint'}
-  </button>
-</div>
-
-            </div>
-            
           </div>
           <div className="footer">Made with ❤️ by <b><a href="https://www.quilibrium.com" className="group">Quilibrium</a></b> Lovers</div>
         </div>
