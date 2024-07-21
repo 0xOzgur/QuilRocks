@@ -1,0 +1,150 @@
+/* Mevcut stilleriniz */
+.mint-right1 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 80%;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    margin: 5rem;
+    padding: 2rem;
+  }
+  
+  .mint-right1 > * {
+    margin-bottom: 1.5rem;
+  }
+  
+  .mint-left1 h2 {
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    background: linear-gradient(263.59deg, #faf3f3, #c9766f 99.38%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 4.5vw;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+  }
+  
+  .public-mint {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+  
+  .success {
+    display: inline-block;
+    max-height: fit-content;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    background-color: rgba(76, 175, 80, 0.3);
+    color: #4caf50;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    line-height: 1.2;
+  }
+  
+  .max-wallet {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    color: #a0a0a0;
+    background-color: rgba(255, 255, 255, 0.1);
+    max-width: fit-content;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+
+  .price-column, .remaining-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @media (min-width: 992px) {
+    .price-container {
+      justify-content: flex-start;
+    }
+    .col-lg-4 {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+    }
+  }
+  
+  .pricecol, .pricecol-auto {
+    flex: 0 0 auto;
+  }
+  
+  .price-text, .Remaining {
+    color: #a0a0a0;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .price-text2, .Remaining-no {
+    font-size: 1.8rem;
+    color: #4ecdc4;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .price-container {
+      flex-direction: column;
+    }
+  
+    .price-column, .remaining-column {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .mint-button {
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    height: 3rem;
+    border: none;
+  }
+  
+  .mint-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  input[type="number"] {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }

@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import MintCountdown from './MintCountdown';
+import './mintPage.css';
+
 
 export default function Home() {
   const [mintNumber, setMintNumber] = useState(1); // Starting mint number
@@ -23,7 +25,7 @@ export default function Home() {
 
   // Function to handle change in mint amount
   const handleMintAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const quantity = parseInt(event.target.value, 10) || 1; // Default to 1 if input is invalid
+    const quantity = Math.min(Math.max(parseInt(event.target.value) || 1, 1), 10);
     setMintQuantity(quantity);
   };
 
@@ -81,12 +83,12 @@ export default function Home() {
               <div className='max-wallet'>10 Max Per Wallet</div>
             
               <div className="price-container">
-              <div className="pricecol">
+              <div className="price-column">
                 <p className="price-text">Price:</p>
-                <div className="price-text2">100 QUIL</div>
+                <div className="price-text2">{mintQuantity * 100} QUIL</div>
               </div>
 
-              <div className="col-auto col-lg-4">
+              <div className="remaining-column">
                 <p className="Remaining">Remaining:</p>
                 <div className="Remaining-no">634/2024</div>
               </div>
@@ -95,15 +97,26 @@ export default function Home() {
               <div className="col-12 col-sm-auto text-light"> Quantity: </div>
 
               <div className="col-auto col-sm-4">
-                <div className="input-group form-dark">
-                  <button type="button" className="input-group-text bg-transparent border-0 text-light text-5" data-value="decrease" data-target="#nft-amount" data-toggle="spinner">-</button>
-
-                  <input type="text" data-ride="spinner" id="nft-amount" className="form-control text-center bg-transparent rounded-4" value="1" data-min="1" />
-                  <button type="button" className="input-group-text bg-transparent border-0 text-light text-5" data-value="increase" data-target="#nft-amount" data-toggle="spinner">+</button>
-                </div>
+              <div className="input-group form-dark">
+                <button type="button" className="input-group-text bg-transparent border-0 text-light text-5" onClick={() => setMintQuantity(Math.max(1, mintQuantity - 1))}>-</button>
+                <input 
+                  type="number" 
+                  id="nft-amount" 
+                  className="form-control text-center bg-transparent rounded-4" 
+                  value={mintQuantity} 
+                  onChange={handleMintAmountChange}
+                  min="1"
+                  max="10"
+                />
+                <button type="button" className="input-group-text bg-transparent border-0 text-light text-5" onClick={() => setMintQuantity(Math.min(10, mintQuantity + 1))}>+</button>
               </div>
+            </div>
 
-              <div className="d-grid"> <a className="mint-button" href="#">Mint Now</a> </div>
+<div className="d-grid">
+  <button className="mint-button" onClick={mintNFT} disabled={!isWalletConnected}>
+    {isWalletConnected ? 'Mint Now' : 'Connect Wallet to Mint'}
+  </button>
+</div>
 
             </div>
             
