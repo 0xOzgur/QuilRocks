@@ -25,14 +25,19 @@ jobs:
         run: npm run build
 
       - name: Deploy to server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DROPLET_IP }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+        env:
+          HOST: ${{ secrets.DROPLET_IP }}
+          USERNAME: ${{ secrets.SSH_USERNAME }}
+          PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          echo "Username: $USERNAME"
+          echo "Host: $HOST"
+          echo "Attempting SSH connection..."
+          sshpass -p "$PASSWORD" ssh -v -o StrictHostKeyChecking=no $USERNAME@$HOST << 'EOF'
+            echo "Connection successful!"
             cd ~/QuilRocks
             git pull origin development
             npm ci
             npm run build
             pm2 restart quil-rocks-staging || pm2 start npm --name "quil-rocks-staging" -- run start
+          EOF
