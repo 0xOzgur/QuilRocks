@@ -4,9 +4,9 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import React, { ChangeEvent } from 'react';
 import Image from "next/image";
 import Layout from '@/components/layout/Layout';
-import nfts from './nfts.json';
+import nfts from './myrocks.json';
 
-export default function CollectionsPage() {
+export default function MyRocksPage() {
   const uniqueRarities = new Set(nfts.map(nft => nft.rarity));
   const [selectedRarity, setSelectedRarity] = useState('');
   const [displayedNfts, setDisplayedNfts] = useState<{ image: string; imageAlt: string; rockNo: string; rarity: string; }[]>([]);
@@ -119,7 +119,7 @@ export default function CollectionsPage() {
                   <span>{nft.rockNo}</span>
                 </h3>
                 <p className="card-content">Owner</p>
-                <button className="buy-btn">Buy</button>
+                <button className="buy-btn">List for Sale</button>
               </div>
             ))}
             {hasMore && <div ref={loader}>Loading more...</div>}
