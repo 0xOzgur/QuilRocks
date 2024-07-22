@@ -1,0 +1,52 @@
+.auth-button-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-button {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.auth-button-signin {
+  background: linear-gradient(263.59deg, #b11111, #fc5e49 99.38%);
+  color: white;
+  border: none;
+}
+
+.auth-button-signin:hover {
+  background: linear-gradient(263.59deg, #fc5e49, #b11111 99.38%);
+}
+
+.auth-button-signout {
+  background-color: #972222;
+  color: white;
+  border: none;
+}
+
+.auth-button-signout:hover {
+  background-color: #bb6e6e;
+}
+
+.auth-balance {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}

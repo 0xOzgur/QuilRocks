@@ -5,24 +5,17 @@ import Image from "next/image";
 import Layout from '../../components/layout/Layout';
 import MintCountdown from './MintCountdown';
 import './mintPage.css';
+import { useAuth } from '../../context/AuthContext';
 
 export default function MintPage() {
   const [mintNumber, setMintNumber] = useState(1);
   const [mintQuantity, setMintQuantity] = useState(1);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [isMinting, setIsMinting] = useState(false);
-  const [accountBalance, setAccountBalance] = useState(0);
+
+  const { isAuthenticated, balance, login } = useAuth();
 
   const handlePasskeyAuth = async () => {
-    setIsLoading(true);
-    // Simüle edilmiş passkey oluşturma süreci
-    setTimeout(() => {
-      setIsAuthenticated(true);
-      setIsLoading(false);
-      // Simüle edilmiş bakiye
-      setAccountBalance(2000);
-    }, 2000);
+    await login();
   };
 
   const mintNFT = () => {
@@ -59,7 +52,6 @@ export default function MintPage() {
   };
 
   const getButtonText = () => {
-    if (isLoading) return 'Creating Account...';
     if (isMinting) return 'Minting...';
     if (isAuthenticated) return 'Mint Now';
     return 'Create Account / Sign In';
@@ -112,9 +104,9 @@ export default function MintPage() {
 
           <div className="d-grid">
             <button 
-              className={`mint-button ${isLoading || isMinting ? 'loading' : ''}`}
+              className={`mint-button ${isMinting ? 'loading' : ''}`}
               onClick={isAuthenticated ? mintNFT : handlePasskeyAuth}
-              disabled={isLoading || isMinting}
+              disabled={isMinting}
             >
               {getButtonText()}
             </button>
@@ -122,7 +114,7 @@ export default function MintPage() {
 
           {isAuthenticated && (
             <div className="account-balance">
-              Account Balance: {accountBalance} Q
+              Account Balance: {balance} Q
             </div>
           )}
         </div>
