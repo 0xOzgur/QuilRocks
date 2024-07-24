@@ -69,7 +69,6 @@ main.flex {
   justify-content: space-between; /* Logo ve menüyü ayrı tutacak */
   align-items: center;
   width: 100%; /* Tam genişlik sağlar */
-  background-image: url('/container1-bg.webp');
   background-size: cover;
   border-radius: 8px;
 }
@@ -90,28 +89,24 @@ font-style:inherit;
 
 .header-menu li {
   font-weight: 600;
-  border-color: #000000; 
-  color: #ffffff; 
-  background-color: #972222; 
-  flex-grow: 1; 
-  border-radius: 1rem;
-  padding: 0.5rem; /* Tüm kenarlardan 1rem boşluk */
-  border-radius: 8px; /* Köşeleri yuvarlatmak için */
-  padding: 10px;
+
+  color: #ffffff;
+  background: linear-gradient(263.59deg, #b11111, #fc5e49 99.38%);
+  flex-grow: 1;
+  border-radius: 12px; /* Köşeleri daha yuvarlak yapmak için */
+  padding: 0.75rem 1rem; /* Daha fazla iç boşluk için */
   margin-left: auto;
+  transition: all 0.3s ease; /* Hover efektlerini yumuşatmak için */
+  backdrop-filter: blur(5px); /* Arka planı bulanıklaştırmak için */
 }
 
 .header-menu li:hover {
-  font-weight: 600;
-  border-color: #000000; 
-  color: #ffffff; 
-  background-color: #bb6e6e; 
-  flex-grow: 1; 
-  border-radius: 1rem;
-  padding: 0.5rem; /* Tüm kenarlardan 1rem boşluk */
-  border-radius: 8px; /* Köşeleri yuvarlatmak için */
-  padding: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(263.59deg, #fc5e49, #b11111 99.38%);
+  transform: scale(1.05); /* Hoverda hafif büyütme efekti */
 }
+
 
 
 @layer utilities {
@@ -411,6 +406,19 @@ h3.card-title {
       flex: 1; /* Take up equal width */
       max-width: 50%; /* Maximum width */
       align-items: center;
+
+      max-width: 50%; /* Maximum width */
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      height: 80%;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      margin: 5rem;
+      padding: 2rem;
     }
 
     .left1 h2 {
@@ -429,6 +437,16 @@ h3.card-title {
       flex: 1; /* Take up equal width */
       max-width: 50%; /* Maximum width */
       align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      height: 80%;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      margin: 5rem;
+      padding: 2rem;
     }
 
     .intro-rock {
