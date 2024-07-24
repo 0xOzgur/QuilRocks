@@ -1,21 +1,34 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import React, { ChangeEvent } from 'react';
-import Image from "next/image";
+import React from 'react';
 import Layout from '@/components/layout/Layout';
-import nfts from './myrocks.json';
+import typedNfts from './myrocks.json';
+import './myrocks.css';
+
+interface NFT {
+  image: string;
+  imageAlt: string;
+  rockNo: string;
+  rarity: string;
+}
+
+const nfts: NFT[] = typedNfts as NFT[];
 
 export default function MyRocksPage() {
   const uniqueRarities = new Set(nfts.map(nft => nft.rarity));
-  const [selectedRarity, setSelectedRarity] = useState('');
-  const [displayedNfts, setDisplayedNfts] = useState<{ image: string; imageAlt: string; rockNo: string; rarity: string; }[]>([]);
+  const [selectedRarity, setSelectedRarity] = useState<string>('');
+  const [displayedNfts, setDisplayedNfts] = useState<NFT[]>([]);
 
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
-  const loader = useRef(null);
+  const loader = useRef<HTMLDivElement>(null);
   const nftsPerPage = 12;
   const [searchTerm, setSearchTerm] = useState('');
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedNft, setSelectedNft] = useState<NFT | null>(null);
+  const [listingPrice, setListingPrice] = useState('');
 
   const loadMoreNfts = useCallback(() => {
     const filteredNfts = nfts.filter(nft => 
@@ -40,7 +53,7 @@ export default function MyRocksPage() {
     setDisplayedNfts([]);
     setPage(0);
     setHasMore(true);
-    window.scrollTo(0, 0); // Sayfanın başına dön
+    window.scrollTo(0, 0);
   }, [selectedRarity, searchTerm]);
 
   useEffect(() => {
@@ -81,6 +94,29 @@ export default function MyRocksPage() {
     setSearchTerm(e.target.value);
   };
 
+  const openModal = (nft: NFT) => {
+    setSelectedNft(nft);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedNft(null);
+    setListingPrice('');
+  };
+
+  const handleListingPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setListingPrice(e.target.value);
+  };
+
+  const handleListForSale = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (selectedNft) {
+      console.log(`Listing ${selectedNft.rockNo} for sale at ${listingPrice} Quil`);
+    }
+    closeModal();
+  };
+
   return (
     <Layout>
       <div className="main-container">
@@ -119,13 +155,39 @@ export default function MyRocksPage() {
                   <span>{nft.rockNo}</span>
                 </h3>
                 <p className="card-content">Owner</p>
-                <button className="buy-btn">List for Sale</button>
+                <button className="buy-btn" onClick={() => openModal(nft)}>List for Sale</button>
               </div>
             ))}
             {hasMore && <div ref={loader}>Loading more...</div>}
           </div>
         </div>
       </div>
+
+      {isModalOpen && selectedNft && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <h2>List {selectedNft.rockNo} for Sale</h2>
+            <form onSubmit={handleListForSale}>
+              <div className="price-input-container">
+                <label htmlFor="price">Price (Quil):</label>
+                <input
+                  type="number"
+                  id="price"
+                  value={listingPrice}
+                  onChange={handleListingPriceChange}
+                  min="0"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div className="modal-buttons">
+                <button type="submit">List for Sale</button>
+                <button type="button" onClick={closeModal}>Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
