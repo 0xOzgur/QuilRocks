@@ -1,3 +1,29 @@
+.container1-mint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+  height: 100%;
+  line-height: 5rem;
+  margin-top: 1rem;
+}
+
+.mint-left1 {
+  flex: 1;
+  max-width: 50%;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #000000;
+  background-image: url('/cass.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 35rem;
+  padding: 5rem;
+  margin: 5rem;
+}
+
 .mint-right1 {
     display: flex;
     flex-direction: column;

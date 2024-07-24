@@ -391,34 +391,9 @@ h3.card-title {
       margin-top: 1rem;
     }
 
-    .container1-mint {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 1rem;
-      background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
-      height: 100%;
-      line-height: 5rem;
-      margin-top: 1rem;
-    }
-    
     .left1 {
-      flex: 1; /* Take up equal width */
-      max-width: 50%; /* Maximum width */
-      align-items: center;
-
-      max-width: 50%; /* Maximum width */
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      width: 40%;
-      height: 80%;
-      border-radius: 8px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      margin: 5rem;
-      padding: 2rem;
+      flex: 1;
+      max-width: 50%;
     }
 
     .left1 h2 {
@@ -563,21 +538,6 @@ h3.card-title {
     font-weight: 600;
   }
 
-  .mint-left1 {
-    flex: 1;
-    max-width: 50%;
-    align-items: center;
-    border-radius: 8px;
-    background-color: #000000;
-    background-image: url('/cass.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 35rem;
-    padding: 5rem;
-    margin: 5rem;
-  }
-
   .left1 h2 {
     -webkit-text-fill-color: transparent;
     -webkit-font-smoothing: antialiased;
@@ -589,4 +549,3 @@ h3.card-title {
     font-family: "Jost", sans-serif;
     font-weight: 600;
   } 
-  
