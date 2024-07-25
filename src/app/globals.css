@@ -441,7 +441,7 @@ h3.card-title {
       font-family: "Jost", sans-serif;
       font-weight: 300;
       line-height: 5rem;
-      margin-top: 4rem;
+      margin-top: 1rem;
   }
 
   .rock1 {
@@ -457,6 +457,15 @@ h3.card-title {
     -webkit-font-smoothing: antialiased;
     -webkit-background-clip: text;
     font-size: 5vw;
+    font-weight: 700;
+  }
+
+  .rock3 {
+    background: linear-gradient(263.59deg, #fdf8f8, #ffffff  99.38%);
+    font-family: "Jost", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-background-clip: text;
+    font-size: 1.5vw;
     font-weight: 700;
   }
 

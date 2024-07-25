@@ -50,6 +50,7 @@ export default function Home() {
             <div className='slogan-container'>
               <div className='slogan1'>LET&apos;S<span className='rock1'> ROCK</span></div>
               <div className='slogan2'><span className='rock2'>QUILIBRIUM</span></div>
+              <div className='slogan3'><span className='rock3'>The very first NFT Collection on Quilibrium</span></div>
             </div>
           </div>
         </div>
