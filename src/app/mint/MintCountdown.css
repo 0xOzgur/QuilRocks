@@ -3,21 +3,23 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+  flex-wrap: wrap; /* Ekran küçüldüğünde alt alta geçmesine izin ver */
 }
 
 .mint-ends-text {
-  font-size: 2.25rem;
+  font-size: 1.25rem; /* Mobil için daha küçük font */
   color: #ffffff;
   font-weight: 600;
   margin-right: 0.5rem;
-  line-height: 1;
+  line-height: 1.2;
+  text-align: center; /* Mobilde ortalı görünüm */
 }
 
 .countdown-timer {
-  font-size: 2.25rem;
+  font-size: 1.25rem; /* Mobil için daha küçük font */
   color: #ffffff;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .blink_me {
@@ -30,13 +32,9 @@
   }
 }
 
-/* Mevcut stil tanımlamalarınız */
+/* Genel stil tanımlamaları */
 .text-light {
   color: #f8f9fa !important;
-}
-
-.text-7 {
-  font-size: 2.25rem !important;
 }
 
 .text-white {
@@ -47,4 +45,34 @@
   font-weight: 600 !important;
 }
 
-/* Diğer mevcut stil tanımlamalarınız... */
+/* Responsive tasarım için medya sorguları */
+@media (min-width: 768px) {
+  .mint-ends-text,
+  .countdown-timer {
+    font-size: 1.75rem; /* Tablet için orta boy font */
+  }
+}
+
+@media (min-width: 1024px) {
+  .mint-ends-text,
+  .countdown-timer {
+    font-size: 2.25rem; /* Masaüstü için orijinal boyut */
+  }
+}
+
+/* text-7 sınıfı için responsive tanımlama */
+.text-7 {
+  font-size: 1.25rem !important; /* Mobil için küçük */
+}
+
+@media (min-width: 768px) {
+  .text-7 {
+    font-size: 1.75rem !important; /* Tablet için orta */
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-7 {
+    font-size: 2.25rem !important; /* Masaüstü için orijinal boyut */
+  }
+}
