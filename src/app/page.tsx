@@ -67,7 +67,7 @@ export default function Home() {
               
               <div className="column">
                 <p className="paragraph">
-                  By investing in this NFT project, you're not just owning a digital asset; <span className="highlight">you're fueling the future of Quilibrium Ecosystem!</span> The revenue generated will empower our pioneering developers to bring their visionary projects to life.
+                  By investing in this NFT project, you&aposre not just owning a digital asset; <span className="highlight">you&aposre fueling the future of Quilibrium Ecosystem!</span> The revenue generated will empower our pioneering developers to bring their visionary projects to life.
                 </p>
 
                 <div className="benefits-section">
@@ -82,7 +82,7 @@ export default function Home() {
               
               <div className="column">
                 <p className="call-to-action">
-                  Don't miss out on this extraordinary adventure. Make history, claim your spot in the Quilibrium legacy, and <a href="/mint" className="quilibrium-space"><span className="highlight">mint your very own Quil Rocks today.</span></a> The future awaits – and it's brighter than ever!
+                  Don&apost miss out on this extraordinary adventure. Make history, claim your spot in the Quilibrium legacy, and <a href="/mint" className="quilibrium-space"><span className="highlight">mint your very own Quil Rocks today.</span></a> The future awaits – and it&aposs brighter than ever!
                 </p>
                 <div className='mint-call-to-action'>
                 <Link href="/mint" className="home-mint-button">MINT NOW</Link></div>
