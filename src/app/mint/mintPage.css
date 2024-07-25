@@ -43,12 +43,12 @@ html, body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
-  padding: 1rem;
+  padding: 1.5rem; /* Padding'i artırdık */
   box-sizing: border-box;
 }
 
 .mint-right1 > * {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
 }
 
 /* Başlık stilleri */
@@ -89,15 +89,15 @@ html, body {
 .max-wallet {
   display: inline-flex;
   align-items: center;
-  padding: 0.3rem 0.6rem;
+  padding: 0.5rem 1rem; /* Padding'i artırdık */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  font-size: 0.7rem;
+  font-size: 0.8rem; /* Font boyutunu biraz artırdık */
   color: #a0a0a0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.2rem; /* Alt boşluğu artırdık */
 }
 
 .max-wallet::before {
@@ -111,10 +111,10 @@ html, body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.2rem; /* Alt boşluğu artırdık */
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 0.4rem;
+  padding: 0.8rem; /* Padding'i artırdık */
 }
 
 .price-column, .remaining-column {
@@ -168,7 +168,59 @@ html, body {
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
 }
+
+.mintpage-mint-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #FF3333, #8B0000);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.mintpage-mint-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+}
+
+.mintpage-mint-button:hover::before {
+  opacity: 1;
+}
+
+.mintpage-mint-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(139, 0, 0, 0.3);
+}
+
+/* Glowing effect */
+.mintpage-mint-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.mintpage-mint-button:hover::after {
+  opacity: 1;
+}
+
+
+
 
 /* Miktar seçici */
 .quantity-container {
@@ -177,8 +229,8 @@ html, body {
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 0.4rem 0.6rem;
-  margin-bottom: 0.8rem;
+  padding: 0.8rem 1rem; /* Padding'i artırdık */
+  margin-bottom: 1.2rem; /* Alt boşluğu artırdık */
 }
 
 .quantity-label {
@@ -225,11 +277,11 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .account-balance {
-  padding: 0.4rem;
+  padding: 0.8rem; /* Padding'i artırdık */
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem; /* Font boyutunu biraz artırdık */
   color: #fff;
 }
 
@@ -248,8 +300,13 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .mint-right1 {
+    padding: 2rem;
     width: 48%;
     height: 100%;
+  }
+
+  .mint-right1 > * {
+    margin-bottom: 1.5rem; /* Daha büyük ekranlar için boşluğu biraz daha artırdık */
   }
 
   .mint-left1 h2 {
@@ -265,7 +322,16 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .max-wallet {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .price-container {
+    padding: 1rem;
+  }
+
+  .quantity-container {
+    padding: 1rem 1.2rem;
   }
 
   .price-text, .Remaining {
@@ -289,6 +355,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .account-balance {
-    font-size: 0.9rem;
+    padding: 1rem;
+    font-size: 1rem;
   }
 }

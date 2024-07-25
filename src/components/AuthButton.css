@@ -1,9 +1,15 @@
+/* Header için stil (eğer yoksa ekleyin) */
+header {
+  position: relative;
+  z-index: 1000;
+}
+
 .auth-button-container {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 1000;
-  display: flex;
+  z-index: 1001; /* Header'dan daha yüksek z-index */
+  display: none; /* Varsayılan olarak gizle */
   align-items: center;
   gap: 0.5rem;
 }
@@ -49,4 +55,28 @@
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   white-space: nowrap;
+}
+
+/* Tablet ve masaüstü için medya sorgusu */
+@media (min-width: 768px) {
+  .auth-button-container {
+    display: flex; /* Tablet ve daha büyük ekranlarda göster */
+  }
+}
+
+/* Daha küçük ekranlar için ek düzenleme (isteğe bağlı) */
+@media (max-width: 1023px) {
+  .auth-button-container {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .auth-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .auth-balance {
+    font-size: 1rem;
+  }
 }
