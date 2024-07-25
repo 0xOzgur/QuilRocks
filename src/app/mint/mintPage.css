@@ -162,12 +162,14 @@
     gap: 0.2rem; /* Etiket ve değer arasında minimal boşluk */
   }
   
-  .mint-button {
+  .mintpage-mint-button {
     font-size: 1.2rem;
-    font-weight: 500;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-    color: white;
-    padding: 0; /* Padding'i kaldırıyoruz */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #8B0000, #FF3333);
+    padding: 0;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -175,20 +177,69 @@
     box-sizing: border-box;
     height: 3rem;
     border: none;
-    display: flex; /* Flexbox kullanıyoruz */
-    justify-content: center; /* Yatay olarak ortalıyoruz */
-    align-items: center; /* Dikey olarak ortalıyoruz */
-  }
-  
-  .mint-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
   }
 
-  .mint-button.loading {
+  .mintpage-mint-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF3333, #8B0000);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .mintpage-mint-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+  }
+
+  .mintpage-mint-button:hover::before {
+    opacity: 1;
+  }
+
+  .mintpage-mint-button.loading {
     opacity: 0.7;
     cursor: not-allowed;
   }
+
+  .mintpage-mint-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(139, 0, 0, 0.3);
+  }
+
+  /* Glowing effect */
+.mintpage-mint-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.mintpage-mint-button:hover::after {
+  opacity: 1;
+}
+
+.mintpage-mint-button.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
   
   input[type="number"] {
     background-color: rgba(255, 255, 255, 0.1);

@@ -469,17 +469,6 @@ h3.card-title {
     font-weight: 700;
   }
 
-  .container2 {
-    grid-template-columns: repeat(3, 1fr); /* Sütun sayısını ihtiyaca göre ayarlayın */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 1rem;
-    margin-top: 1rem;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
-  }
-
   .c2-left,
   .c2-middle,
   .c2-right {
@@ -558,3 +547,337 @@ h3.card-title {
     font-family: "Jost", sans-serif;
     font-weight: 600;
   } 
+
+
+  .container3 {
+    grid-template-columns: repeat(3, 1fr); /* Sütun sayısını ihtiyaca göre ayarlayın */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+  }
+
+  /* Parallax styles */
+.parallax-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.scene {
+  position: absolute;
+  padding-top: 1.5rem;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax-item {
+  position: absolute;
+  display: block;
+}
+
+.parallax-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.item1 {
+  top: 10%;
+  left: 40%;
+  width: 35%;
+  z-index: 1;
+}
+
+.item2 {
+  top: 50%;
+  left: 25%;
+  width: 30%;
+  z-index: 2;
+}
+
+.item3 {
+  top: 40%;
+  left: 70%;
+  width: 30%;
+  z-index: 3;
+}
+
+/* Container2 styles */
+.container2 {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  padding: 2rem;
+}
+
+.container2:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.c2-content {
+  color: #ffffff;
+  font-family: 'Jost', sans-serif;
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem auto;
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: linear-gradient(263.59deg, #faf3f3, #fc5e49 99.38%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.content-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem; /* Sütunlar arası boşluğu azalttık */
+}
+
+.column {
+  flex: 1; /* Her sütun eşit genişlikte olacak */
+  min-width: 0; /* min-width'i kaldırdık, böylece sütunlar eşit şekilde küçülebilir */
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(252, 94, 73, 0.2);
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #f0f0f0;
+}
+
+.highlight {
+  color: #fc5e49;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.benefits-section {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sub-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #fc5e49;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.benefits-list {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+.benefits-list li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.benefits-list li:hover {
+  transform: translateX(5px);
+}
+
+.benefits-list li::before {
+  content: '➤';
+  position: absolute;
+  left: 0;
+  color: #fc5e49;
+}
+
+.call-to-action {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(252, 94, 73, 0.2);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.call-to-action:hover {
+  background-color: rgba(252, 94, 73, 0.3);
+  transform: scale(1.02);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .parallax-container {
+    height: 400px;
+  }
+
+  .item1 {
+    width: 50%;
+    left: 25%;
+  }
+
+  .item2 {
+    width: 45%;
+    left: 40%;
+    top: 70%;
+  }
+
+  .item3 {
+    width: 55%;
+    left: 60%;
+    top: 30%;
+  }
+
+  .c2-content {
+    padding: 2rem;
+  }
+
+  .content-columns {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .column {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .paragraph, .call-to-action {
+    font-size: 1.1rem;
+  }
+
+  .sub-title {
+    font-size: 1.6rem;
+  }
+
+  .container2 {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .c2-content {
+    padding: 1.5rem;
+  }
+
+  .content-columns {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+}
+
+.mint-call-to-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.home-mint-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background: linear-gradient(45deg, #8B0000, #FF3333);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.home-mint-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #FF3333, #8B0000);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.home-mint-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+}
+
+.home-mint-button:hover::before {
+  opacity: 1;
+}
+
+.home-mint-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(139, 0, 0, 0.3);
+}
+
+/* Glowing effect */
+.home-mint-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.home-mint-button:hover::after {
+  opacity: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .home-mint-button {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+  }
+}

@@ -104,7 +104,7 @@ export default function MintPage() {
 
           <div className="d-grid">
             <button 
-              className={`mint-button ${isMinting ? 'loading' : ''}`}
+              className={`mintpage-mint-button ${isMinting ? 'loading' : ''}`}
               onClick={isAuthenticated ? mintNFT : handlePasskeyAuth}
               disabled={isMinting}
             >
