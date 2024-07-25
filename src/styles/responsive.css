@@ -154,6 +154,13 @@
 
 
 @media (max-width: 480px) {
+
+  .container1-home {
+    background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+    height: 50vh;
+    line-height: 2rem;
+  }
+
   .cards-container {
     grid-template-columns: 1fr;
   }

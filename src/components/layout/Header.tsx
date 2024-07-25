@@ -27,10 +27,10 @@ const Header: React.FC = () => {
           <div className="hidden md:flex">
             <nav>
               <ul className="flex space-x-3">
-                <li><Link href="/" className="text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">Home</Link></li>
-                <li><Link href="/mint" className="text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">Mint</Link></li>
-                <li><Link href="/collection" className="text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">Collection</Link></li>
-                <li><Link href="/my-rocks" className="text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">My Rocks</Link></li>
+                <li><Link href="/" className="text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">Home</Link></li>
+                <li><Link href="/mint" className="text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">Mint</Link></li>
+                <li><Link href="/collection" className="text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">Collection</Link></li>
+                <li><Link href="/my-rocks" className="text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg transform hover:scale-110">My Rocks</Link></li>
               </ul>
             </nav>
           </div>
