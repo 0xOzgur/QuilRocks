@@ -213,3 +213,102 @@
     margin-bottom: 0;
   }
 }
+
+
+/* Responsive ayarlar */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .card {
+    border-radius: 0.5rem;
+  }
+
+  h3.card-title {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .card-content {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .buy-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+
+  h3.card-title {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  .card-content {
+    font-size: 0.7rem;
+    padding: 0.4rem;
+  }
+
+  .buy-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+}
+
+/* Filtreler için responsive ayarlar */
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .filter, .search-box {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .filter-rarity {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+    margin: 0.2rem;
+  }
+
+  .search-box input[type="search"] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
+
+/* Yükleme göstergesi için stil */
+.loading-indicator {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #fff;
+}
