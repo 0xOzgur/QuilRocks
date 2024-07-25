@@ -12,14 +12,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    background-image: url('/container1-bg.png');
-    background-size: cover;
+  background-image: url('/container1-bg.png');
+  background-size: cover;
   max-width: 90%;
   margin: 0 auto;
   display: flex; /* Flexbox modelini kullan */
@@ -32,12 +26,14 @@ body, button, input, textarea, select {
 }
 
 .main-container {
-  max-width: 100%;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   flex-direction: column;
   margin: 0 auto;
   flex-grow: 1;
+  padding: 1rem;
 }
 
 /* Ana konteyner için stil */
@@ -198,43 +194,7 @@ font-style:inherit;
   padding: 0;
 }
 
-/* Ekran boyutuna göre medya sorguları */
-@media (max-width: 768px) {
-  .card {
-    min-width: 200px; /* Daha küçük ekranlar için kart genişliği */
-  }
 
-  .nft-image {
-    width: 100%; /* Allows image to fill the container on smaller screens */
-  }
-
-  .card {
-    min-width: 200px; /* Daha küçük ekranlar için kart genişliği */
-  }
-}
-
-@media (max-width: 480px) {
-  .cards-container {
-    flex-direction: column; /* Çok küçük ekranlarda kartları dikey olarak istifler */
-    align-items: center; /* Kartları merkeze hizalar */
-  }
-  .card {
-    max-width: 100%; /* Kartların tam genişlik almasını sağlar */
-  }
-}
-
-.card:hover {
-  box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
-  transform: scale(1.01); /* İçeriği %10 büyüt */
-}
-
-.nft-image {
-  object-fit: cover;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  max-width: 100%; /* Ensures image does not exceed its container */
-  height: auto; /* Maintains aspect ratio */
-}
 
 
 /* Inline style için CSS değişkeni */
@@ -339,8 +299,9 @@ h3.card-title {
 }
 
 .filter-rarity:hover {
-  background-color: #e6e6e6;
+  background-color: #e96c2b;
   cursor: pointer;
+  color:#f0f0f0;
 }
 
 .search-box input[type="search"] {
@@ -737,72 +698,7 @@ h3.card-title {
   transform: scale(1.02);
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .parallax-container {
-    height: 400px;
-  }
 
-  .item1 {
-    width: 50%;
-    left: 25%;
-  }
-
-  .item2 {
-    width: 45%;
-    left: 40%;
-    top: 70%;
-  }
-
-  .item3 {
-    width: 55%;
-    left: 60%;
-    top: 30%;
-  }
-
-  .c2-content {
-    padding: 2rem;
-  }
-
-  .content-columns {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .column {
-    width: 100%;
-    min-width: auto;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .paragraph, .call-to-action {
-    font-size: 1.1rem;
-  }
-
-  .sub-title {
-    font-size: 1.6rem;
-  }
-
-  .container2 {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .c2-content {
-    padding: 1.5rem;
-  }
-
-  .content-columns {
-    flex-direction: column;
-  }
-
-  .column {
-    width: 100%;
-  }
-}
 
 .mint-call-to-action {
   display: flex;
@@ -874,10 +770,4 @@ h3.card-title {
   opacity: 1;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .home-mint-button {
-    padding: 0.8rem 2rem;
-    font-size: 1.2rem;
-  }
-}
+

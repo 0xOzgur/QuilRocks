@@ -16,16 +16,17 @@ interface NFT {
 const nfts: NFT[] = typedNfts as NFT[];
 
 export default function MyRocksPage() {
+  // Geçici authentication durumu
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const uniqueRarities = new Set(nfts.map(nft => nft.rarity));
   const [selectedRarity, setSelectedRarity] = useState<string>('');
   const [displayedNfts, setDisplayedNfts] = useState<NFT[]>([]);
-
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const loader = useRef<HTMLDivElement>(null);
   const nftsPerPage = 12;
   const [searchTerm, setSearchTerm] = useState('');
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedNft, setSelectedNft] = useState<NFT | null>(null);
   const [listingPrice, setListingPrice] = useState('');
@@ -117,50 +118,62 @@ export default function MyRocksPage() {
     closeModal();
   };
 
+  // Geçici login fonksiyonu
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
   return (
     <Layout>
       <div className="main-container">
-        <div className="content-container">
-          <div className="filters-container">
-            <div className="filter">
-              Rarity: 
-              <span className="filter-rarity" onClick={() => setSelectedRarity('')} style={{cursor: 'pointer', textDecoration: 'underline'}}>All</span>
-              {Array.from(uniqueRarities).map((rarity, index) => (
-                <span 
-                  key={index} 
-                  className="filter-rarity" 
-                  onClick={() => handleRarityClick(rarity)} 
-                  style={{cursor: 'pointer'}}>
-                  {rarity}
-                </span>
-              ))}
-            </div>
-            <div className='search-box'>
-              <input 
-                type="search" 
-                placeholder="Search Rock No" 
-                value={searchTerm}
-                onChange={handleSearch} 
-              />
-            </div>
-          </div>
-          
-          <div className="cards-container">
-            {displayedNfts.map((nft, index) => (
-              <div key={index} className="card">
-                <div className="flex">
-                  <img src={nft.image} className="nft-image" loading="lazy" alt={nft.rockNo} />
-                </div>
-                <h3 className="card-title">
-                  <span>{nft.rockNo}</span>
-                </h3>
-                <p className="card-content">Owner</p>
-                <button className="buy-btn" onClick={() => openModal(nft)}>List for Sale</button>
+        {isAuthenticated ? (
+          <div className="content-container">
+            <div className="filters-container">
+              <div className="filter">
+                Rarity: 
+                <span className="filter-rarity" onClick={() => setSelectedRarity('')} style={{cursor: 'pointer', textDecoration: 'underline'}}>All</span>
+                {Array.from(uniqueRarities).map((rarity, index) => (
+                  <span 
+                    key={index} 
+                    className="filter-rarity" 
+                    onClick={() => handleRarityClick(rarity)} 
+                    style={{cursor: 'pointer'}}>
+                    {rarity}
+                  </span>
+                ))}
               </div>
-            ))}
-            {hasMore && <div ref={loader}>Loading more...</div>}
+              <div className='search-box'>
+                <input 
+                  type="search" 
+                  placeholder="Search Rock No" 
+                  value={searchTerm}
+                  onChange={handleSearch} 
+                />
+              </div>
+            </div>
+            
+            <div className="cards-container">
+              {displayedNfts.map((nft, index) => (
+                <div key={index} className="card">
+                  <div className="flex">
+                    <img src={nft.image} className="nft-image" loading="lazy" alt={nft.rockNo} />
+                  </div>
+                  <h3 className="card-title">
+                    <span>{nft.rockNo}</span>
+                  </h3>
+                  <p className="card-content">Owner</p>
+                  <button className="buy-btn" onClick={() => openModal(nft)}>List for Sale</button>
+                </div>
+              ))}
+              {hasMore && <div ref={loader}>Loading more...</div>}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="login-message">
+            <p>Please login to see your Rocks</p>
+            <button onClick={handleLogin} className="login-button">Login</button>
+          </div>
+        )}
       </div>
 
       {isModalOpen && selectedNft && (

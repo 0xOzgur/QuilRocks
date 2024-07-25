@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 import Image from 'next/image';
 import Parallax from 'parallax-js';
 import Link from 'next/link';
+import '@/styles/responsive.css';
 
 export default function Home() {
   const sceneEl = useRef(null);
