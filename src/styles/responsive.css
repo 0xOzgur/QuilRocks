@@ -217,6 +217,14 @@
   .container3 > *:last-child {
     margin-bottom: 0;
   }
+
+  .benefits-section {
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  
+
 }
 
 
