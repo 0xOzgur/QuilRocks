@@ -50,10 +50,10 @@ const Header: React.FC = () => {
           <div className="md:hidden bg-red-800 rounded-lg mt-2 p-4">
             <nav>
               <ul className="space-y-2">
-                <li><Link href="/" className="block text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">Home</Link></li>
-                <li><Link href="/mint" className="block text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">Mint</Link></li>
-                <li><Link href="/collection" className="block text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">Collection</Link></li>
-                <li><Link href="/my-rocks" className="block text-white font-bold hover:text-red-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">My Rocks</Link></li>
+                <li><Link href="/" className="block text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">Home</Link></li>
+                <li><Link href="/mint" className="block text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">Mint</Link></li>
+                <li><Link href="/collection" className="block text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">Collection</Link></li>
+                <li><Link href="/my-rocks" className="block text-white font-bold hover:text-white-900 transition duration-300 ease-in-out px-3 py-2 rounded-md hover:bg-red-300 hover:shadow-lg">My Rocks</Link></li>
               </ul>
             </nav>
           </div>

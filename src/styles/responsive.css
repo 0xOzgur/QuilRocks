@@ -63,9 +63,31 @@
 
   
   .container1-home {
-    flex-direction: column;
-    height: auto;
-    line-height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+    height: 50vh;
+    line-height: 2rem;
+    margin-top: 1rem;
+  }
+
+
+
+  .rock1 {
+    font-size: 2vw;
+    line-height: 0vw;
+  }
+
+  .rock2 {
+    font-size: 2vw;
+    line-height: 1vw;
+  }
+
+  .rock3 {
+    font-size: 1.5vw;
+    line-height: 1vw;
   }
 
   .left1 {
@@ -73,9 +95,13 @@
   }
 
   .right1 {
-    max-width: 100%;
-    margin: 2rem 0;
-    padding: 1rem;
+    flex: 1; /* Take up equal width */
+    max-width: 50%; /* Maximum width */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .parallax-container {
@@ -114,6 +140,7 @@
 
   .right1 {
     width: 100%;
+    
   }
 
   .left1 h2 {
@@ -122,6 +149,7 @@
 
   .slogan-container {
     font-size: 6vw;
+    margin-top: auto;
   }
 
   .c2-left, .c2-middle, .c2-right {
