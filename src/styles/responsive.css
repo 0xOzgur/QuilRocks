@@ -162,7 +162,7 @@
 
   .container1-home {
     background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
-    height: 50vh;
+    height: 100%;
     line-height: 2rem;
   }
 
