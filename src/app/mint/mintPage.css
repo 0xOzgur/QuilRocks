@@ -12,12 +12,14 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 100%;
+  width: 95%; /* Genişliği %95 olarak ayarladık */
+  max-width: 95%; /* Maksimum genişliği %95 olarak ayarladık */
   height: auto;
   padding: 1rem;
+  border-radius: 8px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto; /* Container'ı ortalar */
 }
 
 /* Sol bölüm (resim) düzenlemesi */
