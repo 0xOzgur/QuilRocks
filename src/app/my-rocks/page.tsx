@@ -5,6 +5,8 @@ import React from 'react';
 import Layout from '@/components/layout/Layout';
 import typedNfts from './myrocks.json';
 import './myrocks.css';
+import { useAuth } from '@/context/AuthContext';
+import Link from 'next/link';
 
 interface NFT {
   image: string;
@@ -16,8 +18,7 @@ interface NFT {
 const nfts: NFT[] = typedNfts as NFT[];
 
 export default function MyRocksPage() {
-  // Geçici authentication durumu
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, login } = useAuth();
 
   const uniqueRarities = new Set(nfts.map(nft => nft.rarity));
   const [selectedRarity, setSelectedRarity] = useState<string>('');
@@ -118,9 +119,8 @@ export default function MyRocksPage() {
     closeModal();
   };
 
-  // Geçici login fonksiyonu
   const handleLogin = () => {
-    setIsAuthenticated(true);
+    login();
   };
 
   return (
@@ -170,8 +170,8 @@ export default function MyRocksPage() {
           </div>
         ) : (
           <div className="login-message">
-            <p>Please login to see your Rocks</p>
-            <button onClick={handleLogin} className="login-button">Login</button>
+            <h2 className="login-title">Please login to see your Rocks</h2>
+            <button onClick={handleLogin} className="myrocks-login-button">LOGIN</button>
           </div>
         )}
       </div>
