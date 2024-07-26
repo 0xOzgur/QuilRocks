@@ -1,36 +1,36 @@
 [
   {
-    "image": "./collection/0001.PNG",
+    "image": "/images/collection/0001.PNG",
     "imageAlt": "Quilrocks Logo",
     "rockNo": "Rock 0001",
     "rarity": "Common"
   },
   {
-    "image": "./collection/0002.PNG",
+    "image": "/images/collection/0002.PNG",
     "imageAlt": "Quilrocks Logo",
     "rockNo": "Rock 0002",
     "rarity": "Common"
   },
   {
-    "image": "./collection/0003.PNG",
+    "image": "/images/collection/0003.PNG",
     "imageAlt": "Quilrocks Logo",
     "rockNo": "Rock 0003",
     "rarity": "Common"
   },
   {
-    "image": "./collection/0004.PNG",
+    "image": "/images/collection/0004.PNG",
     "imageAlt": "Quilrocks Logo",
     "rockNo": "Rock 0004",
     "rarity": "Rare"
   },
   {
-    "image": "./collection/0010.PNG",
+    "image": "/images/collection/0010.PNG",
     "imageAlt": "Quilrocks Logo",
     "rockNo": "Rock 0010",
     "rarity": "Common"
   },
   {
-    "image": "./collection/0011.PNG",
+    "image": "/images/collection/0011.PNG",
     "imageAlt": "Quilrocks Logo",
     "rockNo": "Rock 0011",
     "rarity": "Common"

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import React, { ChangeEvent } from 'react';
 import Image from "next/image";
+import './collection.css';
 import Layout from '@/components/layout/Layout';
 import nfts from './nfts.json';
 
