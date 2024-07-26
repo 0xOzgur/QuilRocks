@@ -14,7 +14,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
-            <Link href="https://app.quilrocks.io" target="_blank" rel="noopener noreferrer">
+            <Link href="/" rel="noopener noreferrer">
               <Image
                 src="/logo2.png"
                 alt="QuilRocks Logo"
