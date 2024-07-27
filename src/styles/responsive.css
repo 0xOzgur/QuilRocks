@@ -166,7 +166,6 @@
   }
 
   .container1-home {
-    background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
     height: 100%;
     line-height: 2rem;
   }
@@ -187,7 +186,8 @@
 
   .right1 {
     width: 100%;
-
+    height: 90%;
+    padding-top: 1rem;
   }
 
   .left1 h2 {

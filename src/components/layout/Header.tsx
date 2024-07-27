@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <Link href="/" rel="noopener noreferrer">
               <Image
-                src="/logo2.png"
+                src="/images/logo2.png"
                 alt="QuilRocks Logo"
                 width={200}
                 height={24}
