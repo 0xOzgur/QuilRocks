@@ -563,6 +563,21 @@ font-style:inherit;
   transition: all 0.3s ease;
 }
 
+.main-socials {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(252, 94, 73, 0.2);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.main-socials:hover {
+  background-color: rgba(252, 94, 73, 0.3);
+  transform: scale(1.02);
+}
+
 .call-to-action:hover {
   background-color: rgba(252, 94, 73, 0.3);
   transform: scale(1.02);
