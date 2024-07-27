@@ -4,6 +4,11 @@
     padding: 0.5rem;
   }
 
+  .container1-home {
+    background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
+    height: 100%;
+    line-height: 2rem;
+  }
   .cards-container {
     grid-template-columns: repeat(3, 1fr);
   }
