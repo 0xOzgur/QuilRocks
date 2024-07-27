@@ -5,7 +5,7 @@ import React, { ChangeEvent } from 'react';
 import Image from "next/image";
 import './collection.css';
 import Layout from '@/components/layout/Layout';
-import nfts from './nfts.json';
+import nfts from './nftss.json';
 
 export default function CollectionsPage() {
   const uniqueRarities = new Set(nfts.map(nft => nft.rarity));
