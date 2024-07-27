@@ -64,6 +64,11 @@ export default function Home() {
               <p className="paragraph">
   Introducing the <span className="highlight">Quilibrium Rocks project</span>, the groundbreaking and exclusive NFT collection that pioneers the support of the Quilibrium ecosystem! This one-of-a-kind collection is meticulously curated by <span className="highlight"><a href="https://quilibrium.space" className="quilibrium-space">Quilibrium Space</a></span> and expertly crafted by dedicated Quilibrium volunteers, setting a new standard for future projects.
 </p>
+<div className='main-socials'>
+  <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+    <img src="/images/x.png" alt="Twitter" className="social-icon" />
+  </a>
+</div>
               </div>
               
               <div className="column">

@@ -51,6 +51,24 @@ body, button, input, textarea, select {
   flex: auto;
 }
 
+.main-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.social-icon {
+  width: 3rem; /* İstediğiniz boyutta ayarlayın */
+  height: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+
 /* Adjust the main container to align items at the start */
 main.flex {
   justify-content: flex-start; /* Align content to the start */
