@@ -68,6 +68,9 @@ export default function Home() {
   <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
     <img src="/images/x.png" alt="Twitter" className="social-icon" />
   </a>
+  <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+    <img src="/images/telegram.png" alt="Twitter" className="social-icon" />
+  </a>
 </div>
               </div>
               

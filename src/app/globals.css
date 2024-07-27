@@ -62,6 +62,7 @@ body, button, input, textarea, select {
   width: 3rem; /* İstediğiniz boyutta ayarlayın */
   height: 3rem;
   transition: transform 0.3s ease;
+  margin: 1rem;
 }
 
 .social-icon:hover {
