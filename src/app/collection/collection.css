@@ -20,6 +20,35 @@
     align-items: center;
     padding: 0;
     overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    border-radius: 1rem;
+  }
+
+  .card > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card:hover::before {
+    opacity: 1;
   }
   
   .card .flex {
