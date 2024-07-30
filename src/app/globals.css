@@ -79,7 +79,7 @@ main.flex {
 .header-container {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1001;
   display: flex;
   justify-content: space-between; /* Logo ve menüyü ayrı tutacak */
   align-items: center;

@@ -119,7 +119,7 @@ export default function CollectionsPage() {
                 <h3 className="card-title">
                   <span>{nft.rockNo}</span>
                 </h3>
-                <p className="card-content">Owner</p>
+                {/* <p className="card-content">{nft.rarity}</p> */}
                 <button className="buy-btn">Buy</button>
               </div>
             ))}
