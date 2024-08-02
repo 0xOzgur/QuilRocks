@@ -1,75 +1,76 @@
+"use client";
+
 import React, { FC, ReactNode, createContext, useContext, useEffect, useState } from "react";
-import { authenticate, getStoredPasskeys } from "../../passkeys/types";
+import { authenticate, getStoredPasskeys } from "../passkeys/types";
 
 type PasskeysContextValue = {
   currentPasskeyInfo: {address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined} | undefined;
-  showPasskeyPrompt: {fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined, value: boolean};
-  setShowPasskeyPrompt: (state: {address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined, value: boolean}) => void;
-  passkeyRegistrationComplete?: boolean;
-  setPasskeyRegistrationComplete: (value: boolean | undefined) => void;
-  passkeyRegistrationError?: string;
-  setPasskeyRegistrationError: (value: string) => void;
-  signWithPasskey: (credentialId: string, payload: string) => Promise<string>;
+  setCurrentPasskeyInfo: React.Dispatch<React.SetStateAction<{address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined} | undefined>>;
+  showPasskeyPrompt: {address: string, fid: number, username: string, value: boolean, message: string, signature: string, pfpUrl: string | undefined};
+  setShowPasskeyPrompt: React.Dispatch<React.SetStateAction<{address: string, fid: number, username: string, value: boolean, message: string, signature: string, pfpUrl: string | undefined}>>;
+  passkeyRegistrationComplete: boolean | undefined;
+  setPasskeyRegistrationComplete: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+  passkeyRegistrationError: string | undefined;
+  setPasskeyRegistrationError: React.Dispatch<React.SetStateAction<string | undefined>>;
+  signWithPasskey: (address: string, message: string) => Promise<{signature: string}>;
 };
 
-type PasskeysContextProps = {
-  children: ReactNode;
-};
+const PasskeysContext = createContext<PasskeysContextValue | undefined>(undefined);
 
-const PasskeysProvider: FC<PasskeysContextProps> = ({ children }) => {
-  const [currentPasskeyInfo, setCurrentPassKeyInfo] = useState<{address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined}>();
-  const [showPasskeyPrompt, setShowPasskeyPrompt] = useState<{fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined, value: boolean}>({fid: 0, username: "", signature: "", message: "", pfpUrl: "", value: false});
-  const [passkeyRegistrationComplete, setPasskeyRegistrationComplete] = useState<boolean | undefined>();
-  const [passkeyRegistrationError, setPasskeyRegistrationError] = useState<string>();
-  const signWithPasskey = async (credentialId: string, payload: string) => {
-    const cred = await authenticate({credentialId});
-    // @ts-expect-error it's in go
-    return signPayload(cred.largeBlob, payload);
-  }
+export const PasskeysProvider: FC<{children: ReactNode}> = ({ children }) => {
+  const [currentPasskeyInfo, setCurrentPasskeyInfo] = useState<{address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined} | undefined>(undefined);
+  const [showPasskeyPrompt, setShowPasskeyPrompt] = useState<{address: string, fid: number, username: string, value: boolean, message: string, signature: string, pfpUrl: string | undefined}>({address: "", fid: 0, username: "", value: false, message: "", signature: "", pfpUrl: undefined});
+  const [passkeyRegistrationComplete, setPasskeyRegistrationComplete] = useState<boolean | undefined>(undefined);
+  const [passkeyRegistrationError, setPasskeyRegistrationError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    // @ts-expect-error it's in go
-    const go = new Go();
-    WebAssembly.instantiateStreaming(fetch("/main.wasm"), go.importObject).then(result => {
-      go.run(result.instance);
-    })
-
-    getStoredPasskeys().then(p => {
-      if (p.length > 0) {
-        setCurrentPassKeyInfo({...(p[0].additionalData!), address: p[0].address});
-        setPasskeyRegistrationComplete(true);
+    const loadStoredPasskeys = async () => {
+      try {
+        const storedPasskeys = await getStoredPasskeys();
+        if (storedPasskeys.length > 0) {
+          setCurrentPasskeyInfo(storedPasskeys[0]);
+        }
+      } catch (error) {
+        console.error("Failed to load stored passkeys:", error);
       }
-    })
+    };
+
+    loadStoredPasskeys();
   }, []);
 
+  const signWithPasskey = async (address: string, message: string) => {
+    try {
+      const result = await authenticate(address, message);
+      return result;
+    } catch (error) {
+      console.error("Failed to sign with passkey:", error);
+      throw error;
+    }
+  };
+
   return (
-    <PasskeysContext.Provider value={{
-      currentPasskeyInfo,
-      showPasskeyPrompt,
-      setShowPasskeyPrompt,
-      passkeyRegistrationComplete,
-      setPasskeyRegistrationComplete,
-      passkeyRegistrationError,
-      setPasskeyRegistrationError,
-      signWithPasskey,
-    }}>
+    <PasskeysContext.Provider
+      value={{
+        currentPasskeyInfo,
+        setCurrentPasskeyInfo,
+        showPasskeyPrompt,
+        setShowPasskeyPrompt,
+        passkeyRegistrationComplete,
+        setPasskeyRegistrationComplete,
+        passkeyRegistrationError,
+        setPasskeyRegistrationError,
+        signWithPasskey,
+      }}
+    >
       {children}
     </PasskeysContext.Provider>
   );
 };
 
-
-const PasskeysContext = createContext<PasskeysContextValue>({
-  currentPasskeyInfo: undefined,
-  showPasskeyPrompt: undefined as never,
-  setShowPasskeyPrompt: () => undefined,
-  passkeyRegistrationComplete: undefined,
-  setPasskeyRegistrationComplete: () => undefined,
-  passkeyRegistrationError: undefined,
-  setPasskeyRegistrationError: () => undefined,
-  signWithPasskey: async () => undefined as unknown as Promise<string>,
-});
-
-const usePasskeysContext = () => useContext(PasskeysContext);
-
-export { PasskeysProvider, usePasskeysContext };
+export const usePasskeysContext = () => {
+  const context = useContext(PasskeysContext);
+  if (context === undefined) {
+    throw new Error("usePasskeysContext must be used within a PasskeysProvider");
+  }
+  return context;
+};
