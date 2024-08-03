@@ -38,7 +38,7 @@ export const PasskeyModal = () => {
     <div className={`fixed text-stone dark:text-white top-0 left-0 z-[10000] backdrop-blur-md transition ease-in-out duration-600 w-full h-full bg-stone-900/40 dark:bg-stone-800/20${showPasskeyPrompt.value ? "" : " hidden"}`}>
       <div className="absolute mt-16 text-center top-0 left-0 w-full md:left-1/3 md:w-1/3 border border-stone-300/20 bg-stone-400/30 dark:bg-stone-300/30 drop-shadow-2xl rounded-2xl">
         <h2 className="text-center p-4 font-light text-xl">Create Passkey</h2>
-        <div className={`relative z-100 w-[60px] h-[60px] inline-block text-[23pt] font-bold transition ease-in-out duration-300 mb-4 border border-stone-100/30 rounded-full p-2${passkeyRegistrationComplete === true ? " bg-green-600 border-green-200" : passkeyRegistrationComplete === false ? " bg-red-600 border-red-300 font-normal" : " bg-[url('/public/passkey.png')] bg-cover pulsating"}`}>
+        <div className={`relative z-100 w-[60px] h-[60px] inline-block text-[23pt] font-bold transition ease-in-out duration-300 mb-4 border border-stone-100/30 rounded-full p-2${passkeyRegistrationComplete === true ? " bg-green-600 border-green-200" : passkeyRegistrationComplete === false ? " bg-red-600 border-red-300 font-normal" : " bg-[url('/public/images/passkey.png')] bg-cover pulsating"}`}>
           {passkeyRegistrationComplete === true ? "✓" : passkeyRegistrationComplete === false ? "!" : ""}
         </div>
         <div className="mb-4 mx-4">
