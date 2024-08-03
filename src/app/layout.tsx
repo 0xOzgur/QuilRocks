@@ -4,12 +4,10 @@ import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import dynamic from 'next/dynamic';
 import { AuthProvider } from '../context/AuthContext';
-import { PasskeysProvider } from '../context/PasskeysContext';
 
 const inter = Inter({ subsets: ["latin"] });
 
 const AuthButton = dynamic(() => import('../components/AuthButton'), { ssr: false });
-const ClientPasskeyModal = dynamic(() => import('../components/ClientPasskeyModal'), { ssr: false });
 
 export const metadata: Metadata = {
   title: "Quil Rocks",
@@ -24,15 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <PasskeysProvider>
-          <AuthProvider>
-            <div className="relative min-h-screen">
-              <AuthButton />
-              <ClientPasskeyModal />
-              {children}
-            </div>
-          </AuthProvider>
-        </PasskeysProvider>
+        <AuthProvider>
+          <div className="relative min-h-screen">
+            <AuthButton />
+            {children}
+          </div>
+        </AuthProvider>
         <SpeedInsights />
       </body>
     </html>
