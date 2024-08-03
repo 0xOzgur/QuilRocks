@@ -24,7 +24,6 @@ export const PasskeyModal = () => {
   const handleCreateKeypair = () => {
     if (isCreateEd448KeypairAvailable) {
       try {
-        // @ts-expect-error call from go
         return (window as any).createEd448Keypair();
       } catch (error) {
         console.error('Error creating Ed448 keypair:', error);
