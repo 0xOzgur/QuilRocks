@@ -1,6 +1,8 @@
 'use client';
 
-import { useAuth } from '../context/AuthContext';
+import React from 'react';
+import { useAuth } from './context/AuthContext';
+import { usePasskeysContext } from './context/PasskeysContext';
 import './AuthButton.css';
 
 const AuthButton = () => {
@@ -31,7 +33,7 @@ const AuthButton = () => {
           onClick={handleAuth}
           className="auth-button auth-button-signin"
         >
-          Create Account / Sign In
+          Sign In With Passkey
         </button>
       )}
     </div>

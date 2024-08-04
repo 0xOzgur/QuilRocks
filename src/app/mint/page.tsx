@@ -5,7 +5,7 @@ import Image from "next/image";
 import Layout from '../../components/layout/Layout';
 import MintCountdown from './MintCountdown';
 import './mintPage.css';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../components/context/AuthContext';
 
 export default function MintPage() {
   const [mintNumber, setMintNumber] = useState(1);
@@ -54,7 +54,7 @@ export default function MintPage() {
   const getButtonText = () => {
     if (isMinting) return 'Minting...';
     if (isAuthenticated) return 'Mint Now';
-    return 'Create Account / Sign In';
+    return 'Sign In With Passkey';
   };
 
   return (

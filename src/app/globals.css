@@ -656,3 +656,56 @@ font-style:inherit;
 }
 
 
+.pulsating:after, .pulsating:before {
+  content: "";
+  display: block;
+  z-index: 1000;
+}
+
+.pulsating:before {
+  animation: pulse-ring 1.25s cubic-bezier(.215,.61,.355,1) infinite;
+  background-color: #f1f5f94d;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  height: 300%;
+  margin-left: -100%;
+  margin-top: -100%;
+  position: relative;
+  width: 300%;
+}
+
+.pulsating:after {
+  animation: pulse-dot 1.25s cubic-bezier(.455,.03,.515,.955) -.4s infinite;
+  border: 1px solid #fff;
+  border-radius: 200px;
+  box-shadow: 0 0 8px #0000004d;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.pulsating:after, .pulsating:before {
+  content: "";
+  display: block;
+  z-index: 1000;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+  }
+  80%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}
