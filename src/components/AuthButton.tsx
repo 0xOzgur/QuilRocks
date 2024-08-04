@@ -42,7 +42,7 @@ const AuthButton = () => {
           onClick={handleAuth}
           className="auth-button auth-button-signin"
         >
-          Create Account / Sign In
+          Sign In With Passkey
         </button>
       )}
     </div>

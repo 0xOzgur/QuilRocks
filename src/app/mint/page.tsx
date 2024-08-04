@@ -54,7 +54,7 @@ export default function MintPage() {
   const getButtonText = () => {
     if (isMinting) return 'Minting...';
     if (isAuthenticated) return 'Mint Now';
-    return 'Create Account / Sign In';
+    return 'Sign In With Passkey';
   };
 
   return (
