@@ -17,7 +17,7 @@ type PasskeysContextValue = {
   passkeyRegistrationError?: string;
   setPasskeyRegistrationError: (value: string) => void;
   signWithPasskey: (credentialId: string, payload: string) => Promise<string>;
-  isWasmLoaded: boolean;
+  isWasmLoaded: boolean | null;
 };
 
 type PasskeysContextProps = {
@@ -98,7 +98,7 @@ const PasskeysContext = createContext<PasskeysContextValue>({
   passkeyRegistrationError: undefined,
   setPasskeyRegistrationError: () => undefined,
   signWithPasskey: async () => undefined as unknown as Promise<string>,
-  isWasmLoaded: false,
+  isWasmLoaded: null,
 });
 
 const usePasskeysContext = () => useContext(PasskeysContext);
