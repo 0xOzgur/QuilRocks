@@ -6,22 +6,13 @@ import { usePasskeysContext } from './context/PasskeysContext';
 import './AuthButton.css';
 
 const AuthButton = () => {
-  const { isAuthenticated, balance, logout } = useAuth();
-  const { setShowPasskeyPrompt } = usePasskeysContext();
+  const { isAuthenticated, balance, login, logout } = useAuth();
 
   const handleAuth = async () => {
     if (isAuthenticated) {
       logout();
     } else {
-      setShowPasskeyPrompt({
-        address: "",
-        fid: 0,
-        username: "",
-        value: true,
-        message: '',
-        signature: '',
-        pfpUrl: undefined
-      });
+      await login();
     }
   };
 

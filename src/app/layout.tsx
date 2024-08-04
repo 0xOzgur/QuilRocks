@@ -8,7 +8,6 @@ import { PasskeysProvider } from '../components/context/PasskeysContext';
 const inter = Inter({ subsets: ["latin"] });
 
 const AuthButton = dynamic(() => import('../components/AuthButton'), { ssr: false });
-const ClientPasskeyModal = dynamic(() => import('../components/ClientPasskeyModal'), { ssr: false });
 
 export const metadata: Metadata = {
   title: "Quil Rocks",

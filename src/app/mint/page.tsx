@@ -92,6 +92,7 @@ export default function MintPage() {
             <div className="quantity-input-container">
               <button className="quantity-button" onClick={() => handleQuantityChange(-1)}>-</button>
               <input
+                title="MintQuantity"
                 type="number"
                 value={mintQuantity}
                 onChange={(e) => handleQuantityChange(e.target.value)}
