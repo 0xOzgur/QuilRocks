@@ -104,7 +104,6 @@ font-style:inherit;
 
 .header-menu li {
   font-weight: 600;
-
   color: #ffffff;
   background: linear-gradient(263.59deg, #b11111, #fc5e49 99.38%);
   flex-grow: 1;
@@ -113,6 +112,7 @@ font-style:inherit;
   margin-left: auto;
   transition: all 0.3s ease; /* Hover efektlerini yumuşatmak için */
   backdrop-filter: blur(5px); /* Arka planı bulanıklaştırmak için */
+  -webkit-backdrop-filter: blur(5px); /* Support for Safari 9+ and iOS 9+ */
 }
 
 .header-menu li:hover {
@@ -194,9 +194,11 @@ font-style:inherit;
 
 .footer {
   max-height: fit-content;
+  max-height: -moz-fit-content; /* Support for Firefox 3+ and Firefox for Android 4+ */
   text-align: center;
   padding: 1rem;
-  font-size: 1rem;}
+  font-size: 1rem;
+}
   
 
     .footer a {
@@ -250,6 +252,7 @@ font-style:inherit;
       height: 80%;
       border-radius: 8px;
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); /* Support for Safari 9+ and iOS 9+ */
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
       margin: 5rem;
