@@ -5,7 +5,7 @@ import React from 'react';
 import Layout from '@/components/layout/Layout';
 import typedNfts from './myrocks.json';
 import './myrocks.css';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/components/context/AuthContext';
 import Link from 'next/link';
 
 interface NFT {

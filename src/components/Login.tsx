@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Login.scss';
 import Button from './Button';
-import { usePasskeysContext } from '../context/PasskeysContext';
+import { usePasskeysContext } from './context/PasskeysContext';
 import Input from './Input';
 
 export const Login: React.FC = () => {

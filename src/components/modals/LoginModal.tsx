@@ -1,6 +1,6 @@
 import React from 'react';
 import { Login } from '../Login';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 interface LoginModalProps {
   isOpen: boolean;

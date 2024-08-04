@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import dynamic from 'next/dynamic';
-import { AuthProvider } from '../context/AuthContext';
-import { PasskeysProvider } from '../context/PasskeysContext';
+import { AuthProvider } from '../components/context/AuthContext';
+import { PasskeysProvider } from '../components/context/PasskeysContext';
 
 const inter = Inter({ subsets: ["latin"] });
 

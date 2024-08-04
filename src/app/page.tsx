@@ -29,17 +29,17 @@ export default function Home() {
               <div ref={sceneEl} className="scene">
                 <div data-depth="0.2" className="parallax-layer">
                   <div className="parallax-item item1">
-                    <Image src="/images/item-3.png" alt="" width={200} height={150} layout="responsive" className="parallax-image" />
+                    <Image src="/images/item-3.png" alt="" width={200} height={150} className="parallax-image" />
                   </div>
                 </div>
                 <div data-depth="0.5" className="parallax-layer">
                   <div className="parallax-item item2">
-                    <Image src="/images/item-1.png" alt="" width={200} height={150} layout="responsive" className="parallax-image" />
+                    <Image src="/images/item-1.png" alt="" width={200} height={150} className="parallax-image" />
                   </div>
                 </div>
                 <div data-depth="0.8" className="parallax-layer">
                   <div className="parallax-item item3">
-                    <Image src="/images/item-2.png" alt="" width={200} height={150} layout="responsive" className="parallax-image" />
+                    <Image src="/images/item-2.png" alt="" width={200} height={150} className="parallax-image" />
                   </div>
                 </div>
               </div>

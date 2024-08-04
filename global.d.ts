@@ -1,0 +1,1 @@
+declare function createEd448Keypair(): any; // Dönüş tipini uygun şekilde değiştirin

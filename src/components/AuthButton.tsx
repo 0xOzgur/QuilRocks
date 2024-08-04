@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useAuth } from '../context/AuthContext';
-import { usePasskeysContext } from '../context/PasskeysContext';
+import { useAuth } from './context/AuthContext';
+import { usePasskeysContext } from './context/PasskeysContext';
 import './AuthButton.css';
 
 const AuthButton = () => {
