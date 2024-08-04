@@ -22,12 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider>
-          <div className="relative min-h-screen">
-            <AuthButton />
-            {children}
-          </div>
-        </AuthProvider>
+        <PasskeysProvider>
+          <AuthProvider>
+            <div className="relative min-h-screen">
+              <AuthButton />
+              <ClientPasskeyModal />
+              {children}
+            </div>
+          </AuthProvider>
+        </PasskeysProvider>
       </body>
     </html>
   );
