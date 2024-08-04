@@ -34,25 +34,41 @@ const PasskeysProvider: FC<PasskeysContextProps> = ({ children }) => {
     return signPayload(cred.largeBlob, payload);
   }
 
-  const [isWasmLoaded, setIsWasmLoaded] = useState(false);
+  const [isWasmLoaded, setIsWasmLoaded] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const go = new Go();
-    WebAssembly.instantiateStreaming(fetch("/main.wasm"), go.importObject)
-      .then(result => {
+    let isMounted = true;
+
+    const loadWasm = async () => {
+      try {
+        const go = new Go();
+        const result = await WebAssembly.instantiateStreaming(fetch("/main.wasm"), go.importObject);
         go.run(result.instance);
-        setIsWasmLoaded(true);
-        console.log('WebAssembly module loaded successfully');
-        console.log('createEd448Keypair available:', typeof createEd448Keypair === 'function');
-      })
-      .catch(error => console.error('Failed to load WASM:', error));
-  
+        if (isMounted) {
+          setIsWasmLoaded(true);
+          console.log('WebAssembly module loaded successfully');
+          console.log('createEd448Keypair available:', typeof createEd448Keypair === 'function');
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error('Failed to load WASM:', error);
+          setIsWasmLoaded(false);
+        }
+      }
+    };
+
+    loadWasm();
+
     getStoredPasskeys().then(p => {
-      if (p.length > 0) {
+      if (isMounted && p.length > 0) {
         setCurrentPassKeyInfo({...(p[0].additionalData!), address: p[0].address});
         setPasskeyRegistrationComplete(true);
       }
-    })
+    });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
