@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import dynamic from 'next/dynamic';
 import { AuthProvider } from '../components/context/AuthContext';
 import { PasskeysProvider } from '../components/context/PasskeysContext';
@@ -29,7 +28,6 @@ export default function RootLayout({
             {children}
           </div>
         </AuthProvider>
-        <SpeedInsights />
       </body>
     </html>
   );
