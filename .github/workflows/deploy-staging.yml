@@ -3,7 +3,7 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - PasskeySave
+      - PassKeySave
 
 jobs:
   deploy:
@@ -36,7 +36,7 @@ jobs:
           sshpass -p "$PASSWORD" ssh -v -o StrictHostKeyChecking=no $USERNAME@$HOST << 'EOF'
             echo "Connection successful!"
             cd ~/QuilRocks
-            git pull origin PasskeySave
+            git pull origin PassKeySave
             npm ci
             npm run build
             pm2 restart quil-rocks-staging || pm2 start npm --name "quil-rocks-staging" -- run start
