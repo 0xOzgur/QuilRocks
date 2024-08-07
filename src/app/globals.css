@@ -218,7 +218,7 @@ font-style:inherit;
       align-items: center;
       border-radius: 1rem;
       background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
-      height: 50vh;
+      height: fit-content;
       line-height: 5rem;
       margin-top: 1rem;
     }
@@ -252,7 +252,7 @@ font-style:inherit;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      margin: 5rem;
+      margin: 2rem;
       padding: 2rem;
     }
 
@@ -273,6 +273,7 @@ font-style:inherit;
       font-family: "Jost", sans-serif;
       font-weight: 300;
       line-height: 5rem;
+      padding-top: 1rem;
   }
 
   .rock1 {

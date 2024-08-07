@@ -64,6 +64,24 @@
   }
 }
 
+@media (max-width: 1440px) {
+
+  .slogan-container {
+
+}
+
+.right1 {
+  height: fit-content;
+
+}
+
+.container1-home {
+  height: fit-content;
+}
+
+  }
+
+
 @media (max-width: 768px) {
 
   
@@ -73,15 +91,11 @@
     align-items: center;
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.5); /* changed from #000000 to rgba */
-    height: 50vh;
+    height: fit-content;
     line-height: 2rem;
     margin-top: 1rem;
   }
 
-.slogan1, .slogan2, .slogan3 {
-  height: 1rem;
-  
-}
 
   .rock1 {
     font-size: 5vw;
@@ -115,10 +129,7 @@
   .right1 {
     flex: 1; /* Take up equal width */
     max-width: 100%; /* Maximum width */
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-
+    max-height: fit-content;
   }
 
   .parallax-container {
@@ -154,6 +165,54 @@
     width: auto;
     margin-bottom: 0;
   }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .filter, .search-box {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .filter-rarity {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+    margin: 0.2rem;
+  }
+
+  .search-box input[type="search"] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .card {
+    border-radius: 0.5rem;
+  }
+
+  h3.card-title {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .card-content {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .buy-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
 }
 
 
@@ -186,7 +245,7 @@
 
   .right1 {
     width: 100%;
-    height: 90%;
+    height: fit-content;
     padding-top: 1rem;
   }
 
@@ -233,8 +292,6 @@
     margin: 1rem 0;
   }
 
-  
-
 }
 
 
@@ -253,32 +310,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .card {
-    border-radius: 0.5rem;
-  }
-
-  h3.card-title {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
-
-  .card-content {
-    font-size: 0.8rem;
-    padding: 0.5rem;
-  }
-
-  .buy-btn {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
-}
 
 @media (max-width: 576px) {
   .cards-container {
@@ -303,30 +334,7 @@
   }
 }
 
-/* Filtreler için responsive ayarlar */
-@media (max-width: 768px) {
-  .filters-container {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px;
-  }
 
-  .filter, .search-box {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .filter-rarity {
-    font-size: 0.8rem;
-    padding: 0.3rem;
-    margin: 0.2rem;
-  }
-
-  .search-box input[type="search"] {
-    width: 100%;
-    padding: 0.5rem;
-  }
-}
 
 /* Yükleme göstergesi için stil */
 .loading-indicator {
