@@ -2,10 +2,8 @@ import * as React from 'react';
 import './Login.scss';
 import Button from './Button';
 import { usePasskeysContext } from './context/PasskeysContext';
-import Input from './Input';
 
 export const Login: React.FC = () => {
-  const [username, setUsername] = React.useState<string>('');
   const { setShowPasskeyPrompt, signWithPasskey, currentPasskeyInfo } = usePasskeysContext();
 
   return (
@@ -16,22 +14,16 @@ export const Login: React.FC = () => {
         </div>
         {!currentPasskeyInfo ? (
           <div className="sign-in-passkeys">
-            <Input onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
             <Button
               type="primary"
-              disabled={!username}
               onClick={() => {
-                if (username) {
-                  setShowPasskeyPrompt({
-                    address: "",
-                    fid: 0,
-                    username: username,
-                    value: true,
-                    message: '',
-                    signature: '',
-                    pfpUrl: undefined
-                  });
-                }
+                setShowPasskeyPrompt({
+                  address: "",
+                  fid: 0,
+                  value: true,
+                  message: '',
+                  signature: '',
+                });
               }}
             >
               Create Account
@@ -54,3 +46,5 @@ export const Login: React.FC = () => {
     </div>
   );
 };
+
+export default Login;

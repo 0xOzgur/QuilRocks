@@ -80,7 +80,18 @@ export const PasskeyModal = () => {
                 setKeypair(pair);
               }
               const p = JSON.parse(keypair!);
-              await completeRegistration({credentialId: id, largeBlob: Buffer.from(p.PrivateKey).toString('hex'), publicKey: Buffer.from(p.PublicKey).toString('hex'), address: p.Address, additionalData: showPasskeyPrompt});
+              await completeRegistration({
+                credentialId: id, 
+                largeBlob: Buffer.from(p.PrivateKey).toString('hex'), 
+                publicKey: Buffer.from(p.PublicKey).toString('hex'), 
+                address: p.Address, 
+                additionalData: {
+                  fid: showPasskeyPrompt.fid,
+                  message: showPasskeyPrompt.message,
+                  signature: showPasskeyPrompt.signature,
+                  value: showPasskeyPrompt.value
+                }
+              });
               setPasskeyRegistrationComplete(true);
               setKeypair(undefined);
               setId(undefined);
@@ -102,7 +113,7 @@ export const PasskeyModal = () => {
                 pair = handleCreateKeypair();
                 setKeypair(pair);
               }
-              const r = await register(showPasskeyPrompt.username);
+              const r = await register("");
               setId(r.id);
             } catch (e: any) {
               setPasskeyRegistrationComplete(false);
@@ -119,3 +130,5 @@ export const PasskeyModal = () => {
     </div>
   );
 };
+
+export default PasskeyModal;

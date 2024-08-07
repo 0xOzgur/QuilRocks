@@ -9,9 +9,27 @@ declare function signPayload(largeBlob: any, payload: string): string;
 declare function createEd448Keypair(): any; // Dönüş tipini uygun şekilde değiştirin
 
 type PasskeysContextValue = {
-  currentPasskeyInfo: {address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined} | undefined;
-  showPasskeyPrompt: {fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined, value: boolean};
-  setShowPasskeyPrompt: (state: {address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined, value: boolean}) => void;
+  currentPasskeyInfo: {
+    address: string; 
+    fid: number;
+    message: string;
+    signature: string;
+  } | undefined;
+  showPasskeyPrompt: {
+    fid: number;
+    message: string;
+    signature: string;
+    value: boolean;
+  };
+  setShowPasskeyPrompt: (
+    state: {
+      address: string;
+      fid: number;
+      message: string;
+      signature: string;
+      value: boolean;
+    }
+  ) => void;
   passkeyRegistrationComplete?: boolean;
   setPasskeyRegistrationComplete: (value: boolean | undefined) => void;
   passkeyRegistrationError?: string;
@@ -25,12 +43,22 @@ type PasskeysContextProps = {
 };
 
 const PasskeysProvider: FC<PasskeysContextProps> = ({ children }) => {
-  const [currentPasskeyInfo, setCurrentPassKeyInfo] = useState<{address: string, fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined}>();
-  const [showPasskeyPrompt, setShowPasskeyPrompt] = useState<{fid: number, username: string, message: string, signature: string, pfpUrl: string | undefined, value: boolean}>({fid: 0, username: "", signature: "", message: "", pfpUrl: "", value: false});
+  const [currentPasskeyInfo, setCurrentPassKeyInfo] = useState<{
+    address: string;
+    fid: number;
+    message: string;
+    signature: string;
+  }>();
+  const [showPasskeyPrompt, setShowPasskeyPrompt] = useState<{
+    fid: number;
+    message: string;
+    signature: string;
+    value: boolean;
+  }>({ fid: 0, message: "", signature: "", value: false });
   const [passkeyRegistrationComplete, setPasskeyRegistrationComplete] = useState<boolean | undefined>();
   const [passkeyRegistrationError, setPasskeyRegistrationError] = useState<string>();
   const signWithPasskey = async (credentialId: string, payload: string) => {
-    const cred = await authenticate({credentialId});
+    const cred = await authenticate({ credentialId });
     return signPayload(cred.largeBlob, payload);
   }
 
@@ -61,7 +89,7 @@ const PasskeysProvider: FC<PasskeysContextProps> = ({ children }) => {
 
     getStoredPasskeys().then(p => {
       if (isMounted && p.length > 0) {
-        setCurrentPassKeyInfo({...(p[0].additionalData!), address: p[0].address});
+        setCurrentPassKeyInfo({ ...(p[0].additionalData!), address: p[0].address });
         setPasskeyRegistrationComplete(true);
       }
     });
@@ -87,7 +115,6 @@ const PasskeysProvider: FC<PasskeysContextProps> = ({ children }) => {
     </PasskeysContext.Provider>
   );
 };
-
 
 const PasskeysContext = createContext<PasskeysContextValue>({
   currentPasskeyInfo: undefined,

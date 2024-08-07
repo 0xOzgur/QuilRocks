@@ -16,11 +16,9 @@ const AuthButton = () => {
       setShowPasskeyPrompt({
         address: "",
         fid: 0,
-        username: "",
         value: true,
         message: '',
-        signature: '',
-        pfpUrl: undefined
+        signature: ''
       });
     }
   };
