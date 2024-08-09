@@ -56,7 +56,7 @@ export const PasskeyModal = () => {
                 <div
                   className="border-stone-800/20 text-xs border bg-stone-800/20 p-4 mt-4 rounded-xl"
                   style={{fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}}>
-                    {passkeyRegistrationError}
+                    {passkeyRegistrationError.toString()}
                 </div>
                 <div className="mt-4">If your browser told you the passkey option cannot be used with the site, you may be running an unsupported browser. If the browser provides an option to use a phone for passkeys, use this.</div>
               </>

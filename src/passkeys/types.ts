@@ -35,45 +35,58 @@ export const updateStoredPasskey = async (
 export const register = async (account: string) => {
   const challenge = new Uint8Array(32);
   crypto.getRandomValues(challenge);
-  const credential = await navigator.credentials.create({
-    publicKey: {
-      challenge: challenge,
-      rp: {
-        name: 'Quilibrium',
-        // id: request.rp.id,
-      },
-      user: {
-        id: Buffer.from(account),
-        name: account,
-        displayName: account,
-      },
-      pubKeyCredParams: [
-        { alg: -7, type: 'public-key' },  // ES256
-        { alg: -257, type: 'public-key' } // RS256
-      ],
-      authenticatorSelection: {
-        userVerification: 'required',
-        residentKey: 'required',
-      },
-      extensions: {
-        // @ts-expect-error passkeys
-        largeBlob: {
-          support: 'required',
+
+  // Set a minimal placeholder user ID, for example, a single byte.
+  const userId = new Uint8Array([0]); // Just one byte with a value of 0
+
+  try {
+    const credential = await navigator.credentials.create({
+      publicKey: {
+        challenge: challenge,
+        rp: {
+          name: 'Quilibrium',
+        },
+        user: {
+          id: userId,
+          name: account, // Still required for display purposes
+          displayName: account, // Still required for display purposes
+        },
+        pubKeyCredParams: [
+          { alg: -7, type: 'public-key' },  // ES256
+          { alg: -257, type: 'public-key' } // RS256
+        ],
+        authenticatorSelection: {
+          userVerification: 'required',
+          residentKey: 'required',
+        },
+        timeout: 60000, // 1 minute
+        extensions: {
+          // @ts-expect-error passkeys
+          largeBlob: {
+            support: 'required',
+          },
         },
       },
-    },
-  });
-  if (!credential) {
-    throw new Error('could not register passkey');
-  }
+    });
 
-  return {
-    // @ts-expect-error passkeys
-    id: Buffer.from(credential.rawId).toString('base64'),
-    // @ts-expect-error passkeys
-    rawId: Buffer.from(credential.rawId).toString('base64'),
-  };
+    if (!credential) {
+      throw new Error('could not register passkey');
+    }
+
+    return {
+      // @ts-expect-error passkeys
+      id: Buffer.from(credential.rawId).toString('base64'),
+      // @ts-expect-error passkeys
+      rawId: Buffer.from(credential.rawId).toString('base64'),
+    };
+  } catch (error) {
+    console.error('Error during registration:', error);
+    throw error;
+  }
 }
+
+
+
 
 export const completeRegistration = async (
   request: PasskeyAuthenticationRequestLargeBlob,
