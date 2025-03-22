@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/swc-linux-x64-gnu": "^15.2.3",
+    "@next/swc-linux-x64-musl": "^15.2.3",
     "@vercel/speed-insights": "^1.0.10",
     "next": "^14.2.4",
     "parallax-js": "^3.1.0",
